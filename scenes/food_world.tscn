@@ -661,4 +661,4 @@ texture = ExtResource("2_68age")
 metadata/_edit_lock_ = true
 
 [node name="BodyFantasma" parent="." instance=ExtResource("3_nsuvj")]
-position = Vector2(551, 497)
+position = Vector2(58, 511)
