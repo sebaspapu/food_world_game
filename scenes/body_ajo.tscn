@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://da74dg52yudr7"]
+
+[ext_resource type="Script" path="res://scripts/body_ajo.gd" id="1_0k36e"]
+[ext_resource type="Texture2D" uid="uid://cx6xgdoemt5bi" path="res://sprites/enemy/AjoMalOlor/SpriteCaminando_ajo.png" id="2_nrdvt"]
+
+[sub_resource type="Animation" id="Animation_wn2ps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoAjo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k8p32"]
+resource_name = "caminar"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoAjo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_hnkah"]
+resource_name = "inactivo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoAjo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41841"]
+_data = {
+"RESET": SubResource("Animation_wn2ps"),
+"caminar": SubResource("Animation_k8p32"),
+"inactivo": SubResource("Animation_hnkah")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
+radius = 12.0
+
+[node name="BodyAjo" type="CharacterBody2D"]
+position = Vector2(478, 122)
+collision_layer = 2
+script = ExtResource("1_0k36e")
+
+[node name="SpriteCaminandoAjo" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.044, 0.044)
+texture = ExtResource("2_nrdvt")
+hframes = 5
+metadata/_edit_lock_ = true
+
+[node name="RayColision" type="RayCast2D" parent="SpriteCaminandoAjo"]
+position = Vector2(90.9091, 159.091)
+scale = Vector2(22.6947, 21.1021)
+target_position = Vector2(17.0244, 0)
+metadata/_edit_lock_ = true
+
+[node name="RayCaer" type="RayCast2D" parent="SpriteCaminandoAjo"]
+position = Vector2(454.545, 45.4545)
+scale = Vector2(22.6947, 21.1021)
+target_position = Vector2(3.05176e-05, 63.5439)
+metadata/_edit_lock_ = true
+
+[node name="RaySaltar" type="RayCast2D" parent="SpriteCaminandoAjo"]
+position = Vector2(227.273, -500)
+scale = Vector2(22.6947, 21.1021)
+target_position = Vector2(24.0345, 0)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_41841")
+}
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_d678c")
+metadata/_edit_lock_ = true
