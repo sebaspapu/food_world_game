@@ -24,4 +24,7 @@ func _physics_process(delta):
 			
 	velocity.x = $SpriteCaminandoTomate.scale.x * SPEED
 
+	# verificar animaciones
+	$AnimationPlayer.play("caminar")
+	
 	move_and_slide()
