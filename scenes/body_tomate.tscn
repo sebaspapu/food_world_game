@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://tbhcslowwxtt"]
+[gd_scene load_steps=8 format=3 uid="uid://ee2aihd8q0hl"]
 
-[ext_resource type="Script" path="res://scripts/body_fantasma.gd" id="1_qmby3"]
-[ext_resource type="Texture2D" uid="uid://bfnikvjdpxgey" path="res://sprites/enemy/FantasmaChef/SpriteCaminando_fantasma.png" id="1_u1yqw"]
+[ext_resource type="Script" path="res://scripts/body_tomate.gd" id="1_3hph8"]
+[ext_resource type="Texture2D" uid="uid://uwabsk3ff0a7" path="res://sprites/enemy/TomateAsesino/SpriteCaminando_tomate.png" id="2_8w04u"]
 
 [sub_resource type="Animation" id="Animation_wn2ps"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteCaminandoFantasma:frame")
+tracks/0/path = NodePath("SpriteCaminandoTomate:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,19 +20,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_k8p32"]
 resource_name = "caminar"
-length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteCaminandoFantasma:frame")
+tracks/0/path = NodePath("SpriteCaminandoTomate:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2, 4]
 }
 
 [sub_resource type="Animation" id="Animation_hnkah"]
@@ -40,7 +39,7 @@ resource_name = "inactivo"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteCaminandoFantasma:frame")
+tracks/0/path = NodePath("SpriteCaminandoTomate:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,32 +59,31 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
 radius = 12.0
 
-[node name="BodyFantasma" type="CharacterBody2D"]
-position = Vector2(477, 123)
+[node name="BodyTomate" type="CharacterBody2D"]
+position = Vector2(478, 122)
 collision_layer = 2
-script = ExtResource("1_qmby3")
-metadata/_edit_lock_ = true
+script = ExtResource("1_3hph8")
 
-[node name="SpriteCaminandoFantasma" type="Sprite2D" parent="."]
+[node name="SpriteCaminandoTomate" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 scale = Vector2(0.044, 0.044)
-texture = ExtResource("1_u1yqw")
+texture = ExtResource("2_8w04u")
 hframes = 5
 metadata/_edit_lock_ = true
 
-[node name="RayColision" type="RayCast2D" parent="SpriteCaminandoFantasma"]
+[node name="RayColision" type="RayCast2D" parent="SpriteCaminandoTomate"]
 position = Vector2(90.9091, 159.091)
 scale = Vector2(22.6947, 21.1021)
 target_position = Vector2(17.0244, 0)
 metadata/_edit_lock_ = true
 
-[node name="RayCaer" type="RayCast2D" parent="SpriteCaminandoFantasma"]
+[node name="RayCaer" type="RayCast2D" parent="SpriteCaminandoTomate"]
 position = Vector2(454.545, 45.4545)
 scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(0, 85.0001)
+target_position = Vector2(3.05176e-05, 63.5439)
 metadata/_edit_lock_ = true
 
-[node name="RaySaltar" type="RayCast2D" parent="SpriteCaminandoFantasma"]
+[node name="RaySaltar" type="RayCast2D" parent="SpriteCaminandoTomate"]
 position = Vector2(227.273, -500)
 scale = Vector2(22.6947, 21.1021)
 target_position = Vector2(24.0345, 0)
