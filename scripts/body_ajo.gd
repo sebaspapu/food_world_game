@@ -23,5 +23,8 @@ func _physics_process(delta):
 			$SpriteCaminandoAjo.scale.x = -($SpriteCaminandoAjo.scale.x)
 			
 	velocity.x = $SpriteCaminandoAjo.scale.x * SPEED
+	
+	# verificar animaciones
+	$AnimationPlayer.play("caminar")
 
 	move_and_slide()
