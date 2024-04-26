@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=9 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/fondo.png" id="2_68age"]
 [ext_resource type="PackedScene" uid="uid://tbhcslowwxtt" path="res://scenes/body_fantasma.tscn" id="3_nsuvj"]
 [ext_resource type="PackedScene" uid="uid://ee2aihd8q0hl" path="res://scenes/body_tomate.tscn" id="4_1yg73"]
+[ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -667,3 +668,6 @@ position = Vector2(1036, 550)
 [node name="BodyTomate" parent="." instance=ExtResource("4_1yg73")]
 position = Vector2(600, 168)
 metadata/_edit_lock_ = true
+
+[node name="BodyAjo" parent="." instance=ExtResource("5_st4j4")]
+position = Vector2(192, 438)
