@@ -40,7 +40,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
-radius = 12.0
+radius = 15.0333
 
 [node name="BodyProta" type="CharacterBody2D"]
 position = Vector2(478, 122)
@@ -53,22 +53,8 @@ scale = Vector2(0.044, 0.044)
 texture = ExtResource("2_uvv7r")
 metadata/_edit_lock_ = true
 
-[node name="RayColision" type="RayCast2D" parent="SpriteCaminandoProta"]
-position = Vector2(90.9091, 159.091)
-scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(17.0244, 0)
-metadata/_edit_lock_ = true
-
-[node name="RayCaer" type="RayCast2D" parent="SpriteCaminandoProta"]
-position = Vector2(454.545, 45.4545)
-scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(3.05176e-05, 63.5439)
-metadata/_edit_lock_ = true
-
-[node name="RaySaltar" type="RayCast2D" parent="SpriteCaminandoProta"]
-position = Vector2(227.273, -500)
-scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(24.0345, 0)
+[node name="Mira" type="Node2D" parent="SpriteCaminandoProta"]
+position = Vector2(431.818, 45.4545)
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -78,7 +64,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(2, -1)
 shape = SubResource("CircleShape2D_d678c")
 metadata/_edit_lock_ = true
 
@@ -88,3 +74,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 1155
 limit_bottom = 641
+
+[node name="Cadencia" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

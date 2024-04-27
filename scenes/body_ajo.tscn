@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://da74dg52yudr7"]
+[gd_scene load_steps=9 format=3 uid="uid://da74dg52yudr7"]
 
 [ext_resource type="Script" path="res://scripts/body_ajo.gd" id="1_0k36e"]
 [ext_resource type="Texture2D" uid="uid://cx6xgdoemt5bi" path="res://sprites/enemy/AjoMalOlor/SpriteCaminando_ajo.png" id="2_nrdvt"]
@@ -50,11 +50,29 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_mso8e"]
+resource_name = "muerte"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoAjo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41841"]
 _data = {
 "RESET": SubResource("Animation_wn2ps"),
 "caminar": SubResource("Animation_k8p32"),
-"inactivo": SubResource("Animation_hnkah")
+"inactivo": SubResource("Animation_hnkah"),
+"muerte": SubResource("Animation_mso8e")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
@@ -69,7 +87,7 @@ script = ExtResource("1_0k36e")
 position = Vector2(0, -2)
 scale = Vector2(0.044, 0.044)
 texture = ExtResource("2_nrdvt")
-hframes = 5
+hframes = 6
 metadata/_edit_lock_ = true
 
 [node name="RayColision" type="RayCast2D" parent="SpriteCaminandoAjo"]
@@ -79,9 +97,9 @@ target_position = Vector2(17.0244, 0)
 metadata/_edit_lock_ = true
 
 [node name="RayTiro" type="RayCast2D" parent="SpriteCaminandoAjo"]
-position = Vector2(45.4546, 136.364)
+position = Vector2(204.546, 45.4546)
 scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(80.1148, 0)
+target_position = Vector2(64.0919, 0)
 collision_mask = 3
 metadata/_edit_lock_ = true
 
@@ -98,7 +116,7 @@ target_position = Vector2(24.0345, 0)
 metadata/_edit_lock_ = true
 
 [node name="Mira" type="Node2D" parent="SpriteCaminandoAjo"]
-position = Vector2(250, 45.4545)
+position = Vector2(431.818, -45.4546)
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -113,5 +131,4 @@ shape = SubResource("CircleShape2D_d678c")
 metadata/_edit_lock_ = true
 
 [node name="Cadencia" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
