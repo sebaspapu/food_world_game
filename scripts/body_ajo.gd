@@ -8,6 +8,12 @@ const JUMP_VELOCITY = -200.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	
+	# verificar si ha muerto
+	if Inactivo():
+		ProcessInactivo(delta)
+		return null
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -30,8 +36,8 @@ func _physics_process(delta):
 	
 	# disparo de ajo
 	if $Cadencia.is_stopped():
-		#if VePlayer($SpriteCaminandoAjo/RayTiro):
-		#	$Cadencia.start(randf_range(6, 9))
+		if VePlayer($SpriteCaminandoAjo/RayTiro):
+			#$Cadencia.start(randf_range(1, 3))
 			var aux = ATTACK.instantiate()
 			get_node("..").add_child(aux)
 			aux.position = $SpriteCaminandoAjo/Mira.global_position
@@ -40,6 +46,29 @@ func _physics_process(delta):
 func VePlayer(ray):
 	var col = ray.get_collider()
 	if col != null:
-		if col.name == "Player":
+		if col.name == "BodyProta":
 			return true
 	return false
+
+# verificando si el ataque del prota fue efectivo
+func ProcessInactivo(delta):
+	# caida y frenazo
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	# ejecucion fisica final
+	move_and_slide()
+	# verificar si cayo
+	if position.y > 1155:
+		Dead(true)
+
+func Dead(delete):
+	if delete:
+		queue_free()
+	else:
+		collision_layer = 0
+		$AnimationPlayer.play("muerte")
+
+func Inactivo():
+	return $AnimationPlayer.current_animation == "muerte"
+
