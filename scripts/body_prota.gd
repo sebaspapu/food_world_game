@@ -45,11 +45,26 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	#var direction = Input.get_axis("ui_left", "ui_right")
+	#if direction:
+	#	velocity.x = direction * SPEED
+	#else:
+	#	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# movimiento
+	var direction = Input.get_axis("com_left", "com_right")
 	if direction:
 		velocity.x = direction * SPEED
+		#i=i+1
+		print(velocity.x," /---/ ",direction," /---/ ",SPEED)
+		if direction < 0:
+			$SpriteCaminandoProta.scale.x = -0.044
+		elif direction > 0:
+			$SpriteCaminandoProta.scale.x = 0.044
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 		
 	# verificar si cayo
 	if position.y > 635:
