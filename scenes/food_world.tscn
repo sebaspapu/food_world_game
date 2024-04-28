@@ -670,11 +670,22 @@ position = Vector2(1036, 550)
 position = Vector2(600, 168)
 metadata/_edit_lock_ = true
 
-[node name="BodyAjo" parent="." instance=ExtResource("5_st4j4")]
+[node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
+position = Vector2(566, 515)
+metadata/_edit_lock_ = true
+
+[node name="EnemyAjo" type="Node2D" parent="."]
+
+[node name="BodyAjo" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
 position = Vector2(193, 444)
 collision_layer = 4
 metadata/_edit_lock_ = true
 
-[node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(566, 515)
+[node name="BodyAjo2" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(358, 294)
+collision_layer = 4
 metadata/_edit_lock_ = true
+
+[node name="BodyAjo3" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(902, 198)
+collision_layer = 4

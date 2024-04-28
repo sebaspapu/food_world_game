@@ -55,13 +55,11 @@ func _physics_process(delta):
 	var direction = Input.get_axis("com_left", "com_right")
 	if direction:
 		velocity.x = direction * SPEED
-		#i=i+1
-		print(velocity.x," /---/ ",direction," /---/ ",SPEED)
+		#print(velocity.x," /---/ ",direction," /---/ ",SPEED)
 		if direction < 0:
 			$SpriteCaminandoProta.scale.x = -0.044
 		elif direction > 0:
 			$SpriteCaminandoProta.scale.x = 0.044
-			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -82,7 +80,6 @@ func _physics_process(delta):
 			aux.position = $SpriteCaminandoProta/Mira.global_position
 			aux.SetDireccion(Vector2($SpriteCaminandoProta.scale.x, 0))
 	
-# se detiene el personaje prota
 func ProcessInactivo(delta):
 	# caida y frenazo
 	if not is_on_floor():
@@ -96,17 +93,20 @@ func ProcessInactivo(delta):
 
 func Dead(delete):
 	if delete:
-		var pos = $Camara.global_position
-		var c = $Camara
-		remove_child(c)
-		get_node("..").add_child(c)
-		c.position_smoothing_enabled = false
-		c.position = pos
+		#var pos = $Camara.global_position
+		#var c = $Camara
+		#remove_child(c)
+		#get_node("..").add_child(c)
+		#c.position_smoothing_enabled = false
+		#c.position = pos
 		queue_free()
 	else:
+		# no coliciona con el personaje, y con los enemigos
 		collision_layer = 0
+		collision_mask = 0
 		#$Anima.play("dead")
 		velocity.x = 0
+		velocity.y = -JUMPVEL
 		isdead = true
 		
 func Inactivo():
