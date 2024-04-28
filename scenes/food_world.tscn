@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=11 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/fondo.png" id="2_68age"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ee2aihd8q0hl" path="res://scenes/body_tomate.tscn" id="4_1yg73"]
 [ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="6_fx3f8"]
+[ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -689,3 +690,8 @@ metadata/_edit_lock_ = true
 [node name="BodyAjo3" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
 position = Vector2(902, 198)
 collision_layer = 4
+metadata/_edit_lock_ = true
+
+[node name="Object_manzana" parent="." instance=ExtResource("7_e00xh")]
+position = Vector2(678, 514)
+metadata/_edit_lock_ = true
