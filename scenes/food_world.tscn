@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=13 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/fondo.png" id="2_68age"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="6_fx3f8"]
 [ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
+[ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="8_5xt85"]
+[ext_resource type="Script" path="res://scripts/UI_object_manzana.gd" id="8_sc6vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -692,6 +694,52 @@ position = Vector2(902, 198)
 collision_layer = 4
 metadata/_edit_lock_ = true
 
-[node name="Object_manzana" parent="." instance=ExtResource("7_e00xh")]
+[node name="ObjectManzana" type="Node2D" parent="."]
+
+[node name="Object_manzana" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
 position = Vector2(678, 514)
+metadata/_edit_lock_ = true
+
+[node name="Object_manzana2" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(614, 388)
+
+[node name="Object_manzana3" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(61, 501)
+
+[node name="Object_manzana4" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(263, 580)
+
+[node name="Object_manzana5" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(355, 287)
+
+[node name="Object_manzana6" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(774, 227)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("8_sc6vs")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 126.0
+offset_bottom = 59.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(38, 28)
+texture = ExtResource("8_5xt85")
+hframes = 5
+metadata/_edit_lock_ = true
+
+[node name="Label_dos_puntos" type="Label" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 23.0
+offset_right = 105.0
+offset_bottom = 46.0
+text = ":"
+metadata/_edit_lock_ = true
+
+[node name="Label_contador" type="Label" parent="CanvasLayer"]
+offset_left = 75.0
+offset_top = 24.0
+offset_right = 115.0
+offset_bottom = 47.0
+text = "00"
 metadata/_edit_lock_ = true

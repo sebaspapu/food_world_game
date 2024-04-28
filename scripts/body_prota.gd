@@ -111,3 +111,12 @@ func Dead(delete):
 		
 func Inactivo():
 	return isdead == true		
+
+# recoger object manzana
+
+func add_apple():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleAppleCollected()
+
+
+
