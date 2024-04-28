@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 150.0
+const SPEED = 450.0
 
 var direccion = Vector2(0, 0)
 
@@ -18,4 +18,5 @@ func _on_timer_timeout():
 func _on_body_entered(body):
 	if body.name != "TileMap":
 		body.Dead(false)
+		
 	queue_free()

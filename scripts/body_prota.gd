@@ -15,6 +15,8 @@ var dobleJ = false
 
 var isdead = false
 
+var lifes = 3
+
 func _ready():
 	raiz = get_node("..").get_node("..")
 	miOrigen = position
@@ -66,6 +68,7 @@ func _physics_process(delta):
 		
 	# verificar si cayo
 	if position.y > 635:
+		_lose_life()
 		position = miOrigen
 		$AnimationPlayer.play("inactivo")
 
@@ -101,13 +104,7 @@ func Dead(delete):
 		#c.position = pos
 		queue_free()
 	else:
-		# no coliciona con el personaje, y con los enemigos
-		collision_layer = 0
-		collision_mask = 0
-		#$Anima.play("dead")
-		velocity.x = 0
-		velocity.y = -JUMPVEL
-		isdead = true
+		_lose_life()
 		
 func Inactivo():
 	return isdead == true		
@@ -117,6 +114,22 @@ func Inactivo():
 func add_apple():
 	var canvasLayer = get_parent().find_child("CanvasLayer")
 	canvasLayer.handleAppleCollected()
+	
+func _lose_life():
+	lifes = lifes - 1
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleHearts(lifes)
+	
+	print("lifes: ",lifes)
+	
+	if lifes <= 0:
+		# no coliciona con el personaje, y con los enemigos
+		collision_layer = 0
+		collision_mask = 0
+		#$Anima.play("dead")
+		velocity.x = 0
+		velocity.y = -JUMPVEL
+		isdead = true
 
 
 
