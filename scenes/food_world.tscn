@@ -653,7 +653,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [node name="World" type="Node2D"]
-metadata/_edit_lock_ = true
+position = Vector2(0, 16)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tgwxs")
