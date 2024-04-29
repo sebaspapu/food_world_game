@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://qjkxdnqsrci6"]
+[gd_scene load_steps=10 format=3 uid="uid://qjkxdnqsrci6"]
 
 [ext_resource type="Script" path="res://scripts/body_prota.gd" id="1_w8lkc"]
-[ext_resource type="Texture2D" uid="uid://olu0fisnjydl" path="res://sprites/prota/Pixel.png" id="2_uvv7r"]
+[ext_resource type="Texture2D" uid="uid://tdbdq2t1rmd2" path="res://sprites/prota/Sprites Protago-.png" id="2_ga8d8"]
 
 [sub_resource type="Animation" id="Animation_wn2ps"]
 length = 0.001
@@ -20,6 +20,58 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hnkah"]
 resource_name = "inactivo"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoProta:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_hi47e"]
+resource_name = "correr"
+length = 3.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoProta:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_pfhhk"]
+resource_name = "saltar"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCaminandoProta:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_nduml"]
+resource_name = "caer"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,13 +82,16 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [10]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41841"]
 _data = {
 "RESET": SubResource("Animation_wn2ps"),
-"inactivo": SubResource("Animation_hnkah")
+"caer": SubResource("Animation_nduml"),
+"correr": SubResource("Animation_hi47e"),
+"inactivo": SubResource("Animation_hnkah"),
+"saltar": SubResource("Animation_pfhhk")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
@@ -48,20 +103,22 @@ collision_layer = 2
 script = ExtResource("1_w8lkc")
 
 [node name="SpriteCaminandoProta" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(0.044, 0.044)
-texture = ExtResource("2_uvv7r")
+position = Vector2(1.00001, 3.8147e-06)
+scale = Vector2(0.222906, 0.229979)
+texture = ExtResource("2_ga8d8")
+hframes = 4
+vframes = 3
 metadata/_edit_lock_ = true
 
 [node name="Mira" type="Node2D" parent="SpriteCaminandoProta"]
-position = Vector2(431.818, 45.4545)
+position = Vector2(80.7514, -65.2234)
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_41841")
 }
-speed_scale = 2.0
+speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -1)
@@ -74,6 +131,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 1155
 limit_bottom = 641
+metadata/_edit_lock_ = true
 
 [node name="Cadencia" type="Timer" parent="."]
 wait_time = 0.5

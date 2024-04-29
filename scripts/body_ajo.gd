@@ -38,10 +38,11 @@ func _physics_process(delta):
 	# disparo de ajo
 	if $Cadencia.is_stopped():
 		if VePlayer($SpriteCaminandoAjo/RayTiro):
-			#$Cadencia.start(randf_range(1, 3))
+			$Cadencia.start(randf_range(1, 3)) # comentar para disparar a rafaga, tener en cuenta el Wait time de Candencia
 			var aux = ATTACK.instantiate()
 			get_node("..").add_child(aux)
 			aux.position = $SpriteCaminandoAjo/Mira.global_position
+			#aux.SetDireccion(Vector2($SpriteCaminandoAjo.scale.x, 0), true)
 			aux.SetDireccion(Vector2($SpriteCaminandoAjo.scale.x, 0), true)
 
 func VePlayer(ray):

@@ -15,6 +15,8 @@ var dobleJ = false
 
 var isdead = false
 
+var lifes = 3
+
 func _ready():
 	raiz = get_node("..").get_node("..")
 	miOrigen = position
@@ -57,15 +59,27 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		#print(velocity.x," /---/ ",direction," /---/ ",SPEED)
 		if direction < 0:
-			$SpriteCaminandoProta.scale.x = -0.044
+			$SpriteCaminandoProta.scale.x = -0.223
 		elif direction > 0:
-			$SpriteCaminandoProta.scale.x = 0.044
+			$SpriteCaminandoProta.scale.x = 0.223
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	# verificar animaciones
+	if is_on_floor():
+		if direction != 0:
+			$AnimationPlayer.play("correr")
+		else:
+			$AnimationPlayer.play("inactivo")
+	elif velocity.y < 0:
+		$AnimationPlayer.play("saltar")
+	else:
+		$AnimationPlayer.play("caer")
 	
 		
 	# verificar si cayo
 	if position.y > 635:
+		_lose_life()
 		position = miOrigen
 		$AnimationPlayer.play("inactivo")
 
@@ -100,14 +114,9 @@ func Dead(delete):
 		#c.position_smoothing_enabled = false
 		#c.position = pos
 		queue_free()
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	else:
-		# no coliciona con el personaje, y con los enemigos
-		collision_layer = 0
-		collision_mask = 0
-		#$Anima.play("dead")
-		velocity.x = 0
-		velocity.y = -JUMPVEL
-		isdead = true
+		_lose_life()
 		
 func Inactivo():
 	return isdead == true		
@@ -117,6 +126,19 @@ func Inactivo():
 func add_apple():
 	var canvasLayer = get_parent().find_child("CanvasLayer")
 	canvasLayer.handleAppleCollected()
-
-
-
+	
+func _lose_life():
+	lifes = lifes - 1
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleHearts(lifes)
+	
+	print("lifes: ",lifes)
+	
+	if lifes <= 0:
+		# no coliciona con el personaje, y con los enemigos
+		collision_layer = 0
+		collision_mask = 0
+		#$Anima.play("dead")
+		velocity.x = 0
+		velocity.y = -JUMPVEL
+		isdead = true
