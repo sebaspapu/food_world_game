@@ -114,6 +114,7 @@ func Dead(delete):
 		#c.position_smoothing_enabled = false
 		#c.position = pos
 		queue_free()
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	else:
 		_lose_life()
 		
@@ -141,6 +142,3 @@ func _lose_life():
 		velocity.x = 0
 		velocity.y = -JUMPVEL
 		isdead = true
-
-
-
