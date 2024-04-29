@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=16 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/fondo.png" id="2_68age"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="8_5xt85"]
 [ext_resource type="Script" path="res://scripts/UI_objects.gd" id="8_sc6vs"]
 [ext_resource type="Texture2D" uid="uid://d2dxp5eqtrn4t" path="res://sprites/prota/vida/vida.png" id="10_j1wq1"]
+[ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -703,6 +704,26 @@ position = Vector2(902, 198)
 collision_layer = 4
 metadata/_edit_lock_ = true
 
+[node name="BodyAjo4" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(154, 122)
+collision_layer = 4
+metadata/_edit_lock_ = true
+
+[node name="BodyAjo5" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(1053, 165)
+collision_layer = 4
+metadata/_edit_lock_ = true
+
+[node name="BodyAjo6" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(803, 440)
+collision_layer = 4
+metadata/_edit_lock_ = true
+
+[node name="BodyAjo7" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
+position = Vector2(334, 453)
+collision_layer = 4
+metadata/_edit_lock_ = true
+
 [node name="ObjectManzana" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -728,6 +749,14 @@ metadata/_edit_lock_ = true
 
 [node name="Object_manzana6" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
 position = Vector2(774, 227)
+metadata/_edit_lock_ = true
+
+[node name="Object_manzana7" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(823, 0)
+metadata/_edit_lock_ = true
+
+[node name="Object_manzana8" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
+position = Vector2(109, 117)
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -795,4 +824,10 @@ metadata/_edit_lock_ = true
 position = Vector2(63, 2)
 scale = Vector2(0.295001, 0.2925)
 texture = ExtResource("10_j1wq1")
+metadata/_edit_lock_ = true
+
+[node name="MusicWorld" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_gnumj")
+volume_db = -10.0
+autoplay = true
 metadata/_edit_lock_ = true

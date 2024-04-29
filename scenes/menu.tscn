@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://hx54ntuar56e"]
+[gd_scene load_steps=5 format=3 uid="uid://hx54ntuar56e"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_rct0a"]
-[ext_resource type="Texture2D" uid="uid://m73huhf46m3e" path="res://sprites/fondo2.png" id="2_rkucb"]
+[ext_resource type="Texture2D" uid="uid://m73huhf46m3e" path="res://sprites/menu/fondo2.png" id="2_rkucb"]
+[ext_resource type="AudioStream" uid="uid://l5ny7kyxhc7" path="res://audio/music/Hyrule Field   The Legend of Zelda_ Ocarina Of Time.mp3" id="3_mk5sr"]
+[ext_resource type="Texture2D" uid="uid://ngevqnpulu5f" path="res://sprites/menu/FondoProta.png" id="4_5rpih"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,6 +47,19 @@ z_index = -1
 position = Vector2(576, 321.5)
 scale = Vector2(4.49219, 4.49306)
 texture = ExtResource("2_rkucb")
+metadata/_edit_lock_ = true
+
+[node name="MusicWorld" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mk5sr")
+autoplay = true
+metadata/_edit_lock_ = true
+
+[node name="FondoProta" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(574, 325)
+scale = Vector2(0.428939, 0.4125)
+texture = ExtResource("4_5rpih")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonIniciar" to="." method="_on_button_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSalir" to="." method="_on_button_salir_pressed"]
