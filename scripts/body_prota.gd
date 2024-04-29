@@ -114,7 +114,7 @@ func Dead(delete):
 		#c.position_smoothing_enabled = false
 		#c.position = pos
 		queue_free()
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
 		_lose_life()
 		
