@@ -16,6 +16,7 @@ var dobleJ = false
 var isdead = false
 
 var lifes = 3
+var flag = false
 
 func _ready():
 	raiz = get_node("..").get_node("..")
@@ -80,8 +81,11 @@ func _physics_process(delta):
 	# verificar si cayo
 	if position.y > 635:
 		_lose_life()
-		position = miOrigen
-		$AnimationPlayer.play("inactivo")
+		# si ha entrado a el if del lose_life, osea a perdido todas las vidas
+		print("flag: ", flag)
+		if not flag:
+			position = miOrigen
+			$AnimationPlayer.play("inactivo")
 
 	move_and_slide()
 	
@@ -142,3 +146,4 @@ func _lose_life():
 		velocity.x = 0
 		velocity.y = -JUMPVEL
 		isdead = true
+		flag = true
