@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv7lw41lkmcvj"
-path="res://.godot/imported/tilesetcolor.png-1aae838efbcb94fed2ee210ef1acb877.ctex"
+uid="uid://dmd1l2p1p3hly"
+path="res://.godot/imported/tilesetcolornuevo.png-cd26ecde22f77a3d635c64147e6e07d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tilesetcolor.png"
-dest_files=["res://.godot/imported/tilesetcolor.png-1aae838efbcb94fed2ee210ef1acb877.ctex"]
+source_file="res://sprites/world/tilesetcolornuevo.png"
+dest_files=["res://.godot/imported/tilesetcolornuevo.png-cd26ecde22f77a3d635c64147e6e07d0.ctex"]
 
 [params]
 
