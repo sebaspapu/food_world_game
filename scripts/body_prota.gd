@@ -78,10 +78,10 @@ func _physics_process(delta):
 		$AnimationPlayer.play("caer")
 	
 		
-	# verificar si cayo
+	# verificar si cayo verticalmente
 	if position.y > 635:
 		_lose_life()
-		# si ha entrado a el if del lose_life, osea a perdido todas las vidas
+		# flag en true si ya ha perdido todas las vidas
 		print("flag: ", flag)
 		if not flag:
 			position = miOrigen

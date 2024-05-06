@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 const ATTACK = preload("res://scenes/attack_ajo.tscn")
+
+# ataque humo
+const ATTACK_SMOKE = preload("res://scenes/atttack_ajo_humo.tscn")
+
 const SPEED = 1500.0
 const JUMP_VELOCITY = -200.0
 const JUMPVEL = 300.0
@@ -38,12 +42,9 @@ func _physics_process(delta):
 	# disparo de ajo
 	if $Cadencia.is_stopped():
 		if VePlayer($SpriteCaminandoAjo/RayTiro):
-			$Cadencia.start(randf_range(1, 3)) # comentar para disparar a rafaga, tener en cuenta el Wait time de Candencia
-			var aux = ATTACK.instantiate()
-			get_node("..").add_child(aux)
-			aux.position = $SpriteCaminandoAjo/Mira.global_position
-			#aux.SetDireccion(Vector2($SpriteCaminandoAjo.scale.x, 0), true)
-			aux.SetDireccion(Vector2($SpriteCaminandoAjo.scale.x, 0), true)
+			$Cadencia.start(randf_range(0.1, 0.5)) # comentar para disparar a rafaga, tener en cuenta el Wait time de Candencia
+			AttackBallsSmoke()
+			AttackSmoke()
 
 func VePlayer(ray):
 	var col = ray.get_collider()
@@ -76,3 +77,15 @@ func Dead(delete):
 func Inactivo():
 	return $AnimationPlayer.current_animation == "muerte"
 
+func AttackSmoke():
+	# FUNCIONA ATAQUE HUMO
+	var attackInstance = ATTACK_SMOKE.instantiate()  # Instancia del ataque
+	get_node("..").add_child(attackInstance)  # Añadir ataque como hijo
+	attackInstance.position = $SpriteCaminandoAjo/Mira.global_position  # Posición del ataque
+
+func AttackBallsSmoke():
+	# FUNCIONA PERFECTO ATAQUE CON BOLAS DE HUMO
+	var aux = ATTACK.instantiate()
+	get_node("..").add_child(aux)
+	aux.position = $SpriteCaminandoAjo/Mira.global_position
+	aux.SetDireccion(Vector2($SpriteCaminandoAjo.scale.x, 0), true)
