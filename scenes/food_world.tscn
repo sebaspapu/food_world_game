@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
 [ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="8_5xt85"]
 [ext_resource type="Script" path="res://scripts/UI_objects.gd" id="8_sc6vs"]
-[ext_resource type="Texture2D" uid="uid://d2dxp5eqtrn4t" path="res://sprites/prota/vida/vida.png" id="10_j1wq1"]
+[ext_resource type="Texture2D" uid="uid://c20eq7k4jitad" path="res://sprites/prota/vida/vida2.png" id="10_5vqd8"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
@@ -809,21 +809,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_o0etd")
 metadata/_edit_lock_ = true
 
 [node name="SpriteVidas" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(-69, 0)
-scale = Vector2(0.295001, 0.2925)
-texture = ExtResource("10_j1wq1")
+position = Vector2(-76, 74)
+scale = Vector2(1.15, 1.138)
+texture = ExtResource("10_5vqd8")
+hframes = 3
 metadata/_edit_lock_ = true
 
 [node name="SpriteVidas2" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(-3, 1)
-scale = Vector2(0.295001, 0.2925)
-texture = ExtResource("10_j1wq1")
+position = Vector2(-9, 72)
+scale = Vector2(1.15, 1.138)
+texture = ExtResource("10_5vqd8")
+hframes = 3
 metadata/_edit_lock_ = true
 
 [node name="SpriteVidas3" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(63, 2)
-scale = Vector2(0.295001, 0.2925)
-texture = ExtResource("10_j1wq1")
+position = Vector2(57, 71)
+scale = Vector2(1.15, 1.138)
+texture = ExtResource("10_5vqd8")
+hframes = 3
 metadata/_edit_lock_ = true
 
 [node name="MusicWorld" type="AudioStreamPlayer2D" parent="."]
