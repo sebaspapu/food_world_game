@@ -1,20 +1,20 @@
 extends CharacterBody2D
 
+# ataque de bola de humo
 const ATTACK = preload("res://scenes/attack_ajo.tscn")
 
 # ataque humo
 const ATTACK_SMOKE = preload("res://scenes/atttack_ajo_humo.tscn")
 
 const SPEED = 1500.0
-const JUMP_VELOCITY = -200.0
-const JUMPVEL = 300.0
+const JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	
-	# verificar si ha muerto
+	# MECANICA DE MUERTE - verificar si ha muerto
 	if Inactivo():
 		ProcessInactivo(delta)
 		return null
@@ -72,7 +72,7 @@ func Dead(delete):
 		collision_layer = 0
 		collision_mask = 0
 		$AnimationPlayer.play("muerte")
-		velocity.y = -JUMPVEL
+		velocity.y = JUMP_VELOCITY
 
 func Inactivo():
 	return $AnimationPlayer.current_animation == "muerte"

@@ -10,15 +10,18 @@ radius = 3.0
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_ud6gs")
+metadata/_edit_lock_ = true
 
 [node name="SpriteHumoAjo" type="Sprite2D" parent="."]
 position = Vector2(-1, -2)
 scale = Vector2(0.0376302, 0.0344907)
 texture = ExtResource("2_o1rwh")
 hframes = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7bmvc")
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
