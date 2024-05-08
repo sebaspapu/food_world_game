@@ -75,7 +75,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
-radius = 15.0333
+radius = 13.0
 
 [node name="BodyTomate" type="CharacterBody2D"]
 position = Vector2(478, 122)
@@ -110,7 +110,7 @@ target_position = Vector2(3.05176e-05, 63.5439)
 metadata/_edit_lock_ = true
 
 [node name="RaySaltar" type="RayCast2D" parent="SpriteCaminandoTomate"]
-position = Vector2(227.273, -500)
+position = Vector2(386.364, -454.545)
 scale = Vector2(22.6947, 21.1021)
 target_position = Vector2(24.0345, 0)
 metadata/_edit_lock_ = true
@@ -128,7 +128,6 @@ speed_scale = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_d678c")
-metadata/_edit_lock_ = true
 
 [node name="Cadencia" type="Timer" parent="."]
 wait_time = 5.0

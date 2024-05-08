@@ -678,11 +678,22 @@ metadata/_edit_lock_ = true
 [node name="BodyFantasma" parent="." instance=ExtResource("3_nsuvj")]
 position = Vector2(1036, 550)
 
-[node name="BodyTomate" parent="." instance=ExtResource("4_1yg73")]
-position = Vector2(625, 514)
-
 [node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(558, 514)
+position = Vector2(534, 512)
+metadata/_edit_lock_ = true
+
+[node name="EnemyTomate" type="Node2D" parent="."]
+
+[node name="BodyTomate" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(929, 279)
+metadata/_edit_lock_ = true
+
+[node name="BodyTomate2" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(410, 67)
+metadata/_edit_lock_ = true
+
+[node name="BodyTomate3" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(370, 569)
 metadata/_edit_lock_ = true
 
 [node name="EnemyAjo" type="Node2D" parent="."]
