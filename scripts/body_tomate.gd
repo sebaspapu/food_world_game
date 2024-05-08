@@ -13,9 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	
 	# MECANICA DE MUERTE - verificar si ha muerto
-	#if Inactivo():
-	#	ProcessInactivo(delta)
-	#	return null
+	if Inactivo():
+		ProcessInactivo(delta)
+		return null
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -50,6 +50,32 @@ func VePlayer(ray):
 		if col.name == "BodyProta":
 			return true
 	return false
+	
+# MECANICA DE MUERTE - verificando si el ataque del prota fue efectivo
+func ProcessInactivo(delta):
+	# caida y frenazo
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	# ejecucion fisica final
+	move_and_slide()
+	# verificar si cayo
+	if position.y > 1155:
+		Dead(true)
+
+# MECANICA DE MUERTE - TOMATE
+func Dead(delete):
+	if delete:
+		queue_free()
+	else:
+		collision_layer = 0
+		collision_mask = 0
+		$AnimationPlayer.play("muerte")
+		velocity.y = JUMP_VELOCITY
+
+# MECANICA DE MUERTE
+func Inactivo():
+	return $AnimationPlayer.current_animation == "muerte"
 
 # MECANICA DE ATAQUE - Disparo
 func AttackBallsSauce():

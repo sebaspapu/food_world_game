@@ -25,5 +25,5 @@ func _on_timer_timeout():
 func _on_body_entered(body):
 	if body.name != "TileMap":
 		body.Dead(false)
- 		
+
 	queue_free()
