@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=17 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/world/fondo.png" id="2_68age"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
 [ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="8_5xt85"]
 [ext_resource type="Script" path="res://scripts/UI_objects.gd" id="8_sc6vs"]
+[ext_resource type="PackedScene" uid="uid://4xbt1skqi7r6" path="res://scenes/menu_pause.tscn" id="9_gmhxs"]
 [ext_resource type="Texture2D" uid="uid://c20eq7k4jitad" path="res://sprites/prota/vida/vida2.png" id="10_5vqd8"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
 
@@ -678,11 +679,22 @@ metadata/_edit_lock_ = true
 [node name="BodyFantasma" parent="." instance=ExtResource("3_nsuvj")]
 position = Vector2(1036, 550)
 
-[node name="BodyTomate" parent="." instance=ExtResource("4_1yg73")]
-position = Vector2(625, 514)
-
 [node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(558, 514)
+position = Vector2(534, 512)
+metadata/_edit_lock_ = true
+
+[node name="EnemyTomate" type="Node2D" parent="."]
+
+[node name="BodyTomate" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(929, 279)
+metadata/_edit_lock_ = true
+
+[node name="BodyTomate2" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(410, 67)
+metadata/_edit_lock_ = true
+
+[node name="BodyTomate3" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
+position = Vector2(370, 569)
 metadata/_edit_lock_ = true
 
 [node name="EnemyAjo" type="Node2D" parent="."]
@@ -760,6 +772,9 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("8_sc6vs")
+
+[node name="menu_pausa" parent="CanvasLayer" instance=ExtResource("9_gmhxs")]
+process_mode = 3
 
 [node name="NodeManzanas" type="Node2D" parent="CanvasLayer"]
 position = Vector2(1069, 5)
