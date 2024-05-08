@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://duygwd5l1vno4"]
+
+[ext_resource type="Script" path="res://scripts/attack_tomate.gd" id="1_l4xl3"]
+[ext_resource type="Texture2D" uid="uid://dug7mggqhvysx" path="res://sprites/enemy/TomateAsesino/ataquetomatet.png" id="2_2hqqj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlfgy"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_d6goo"]
+resource_name = "salseo"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteAtaqueTomate:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v2rwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteAtaqueTomate:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kl17"]
+_data = {
+"RESET": SubResource("Animation_v2rwl"),
+"salseo": SubResource("Animation_d6goo")
+}
+
+[node name="ataque_tomate" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_l4xl3")
+metadata/_edit_lock_ = true
+
+[node name="SpriteAtaqueTomate" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_2hqqj")
+hframes = 3
+vframes = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qlfgy")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5kl17")
+}
+speed_scale = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
