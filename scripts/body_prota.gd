@@ -18,11 +18,18 @@ var isdead = false
 var lifes = 3
 var flag = false
 
+#chat
+var gui = null
+
 func _ready():
 	raiz = get_node("..").get_node("..")
+	#gui:
+	gui = get_node("..").get_node("GUI/GUI")
 	miOrigen = position
 
 func _physics_process(delta):
+	if not gui.get_node("Chat").IsFree():
+		return null
 	
 	# verificar si ha muerto
 	if Inactivo():
