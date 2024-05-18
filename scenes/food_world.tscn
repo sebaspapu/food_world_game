@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=20 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/world/fondo.png" id="2_68age"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://4xbt1skqi7r6" path="res://scenes/menu_pause.tscn" id="9_gmhxs"]
 [ext_resource type="Texture2D" uid="uid://c20eq7k4jitad" path="res://sprites/prota/vida/vida2.png" id="10_5vqd8"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
+[ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="14_g4may"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -1127,3 +1128,5 @@ stream = ExtResource("11_gnumj")
 volume_db = -10.0
 autoplay = true
 metadata/_edit_lock_ = true
+
+[node name="GUI" parent="." instance=ExtResource("14_g4may")]
