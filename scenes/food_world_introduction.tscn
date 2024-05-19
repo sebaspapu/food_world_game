@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch6gwqyaduv7l"]
+[gd_scene load_steps=10 format=3 uid="uid://ch6gwqyaduv7l"]
 
+[ext_resource type="Script" path="res://scripts/food_world_introduction.gd" id="1_5qhbt"]
 [ext_resource type="Texture2D" uid="uid://cdbwqqurqhqk0" path="res://sprites/world/introductorio/tilesetfull.png" id="1_x6awi"]
 [ext_resource type="Texture2D" uid="uid://dnjbud02mp2eo" path="res://sprites/menu/fondonew.png" id="1_xiw5t"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="3_eqx1g"]
@@ -755,6 +756,7 @@ terrain_set_0/terrain_0/color = Color(0.247059, 0.227451, 0.941176, 1)
 sources/0 = SubResource("TileSetAtlasSource_uhc2b")
 
 [node name="food_world_introduction" type="Node2D"]
+script = ExtResource("1_5qhbt")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(577, 320.5)
@@ -778,8 +780,8 @@ metadata/_edit_lock_ = true
 
 [node name="NodeDragona" parent="." instance=ExtResource("4_q1w6f")]
 position = Vector2(355, 470)
-textos = Array[String](["Chef: …", "Chef: ¿Eh?... ", "Chef: ¡¿Ehhh?! P-pero… Acaso esto es… ¡¿Un dragón?!, ¡no puede ser, no puede ser, no puede ser!", "Chef: Creo que me golpeé la cabeza en el impacto… Debería volver a robarle unas cuantas botellas de vodka al cadáver borracho del senior, seguro me lo perdonará en la otra vida.", "Chef: …", "Chef: Espera un momento… ¡Espera un momento! ¿Cuánta cocción necesitará la carne de dragón para ablandarse?, ¿las escamas pueden servir para la salsa?, ¡¿y si lo horneo a 120°C?! ¡No, no, no, a 115 °C mejor!", "Chef: ¡Oh, no puedo desaprovechar esta maravillosa oportunidad de la vida! Je je je… ", "..."])
-caras = Array[int]([0, 1, 3, 2, 0, 1, 2, 0])
-caraA = Array[bool]([true, true, true, true, true, true, true, true])
+textos = Array[String](["Chef: …", "Chef: ¿Eh?... ", "Chef: ¡¿Ehhh?! P-pero… Acaso esto es… ¡¿Un dragón?!, ¡no puede ser, no puede ser, no puede ser!", "Chef: Creo que me golpeé la cabeza en el impacto… Debería volver a robarle unas cuantas botellas de vodka al cadáver borracho del senior, seguro me lo perdonará en la otra vida.", "Chef: …", "Chef: Espera un momento… ¡Espera un momento! ¿Cuánta cocción necesitará la carne de dragón para ablandarse?, ¿las escamas pueden servir para la salsa?, ¡¿y si lo horneo a 120°C?! ¡No, no, no, a 115 °C mejor!", "Chef: ¡Oh, no puedo desaprovechar esta maravillosa oportunidad de la vida! Je je je… "])
+caras = Array[int]([0, 1, 3, 2, 0, 1, 2])
+caraA = Array[bool]([true, true, true, true, true, true, true])
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_j3f0e")]
