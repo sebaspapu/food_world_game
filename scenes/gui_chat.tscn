@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5f5bxwot7p56"]
+[gd_scene load_steps=7 format=3 uid="uid://c5f5bxwot7p56"]
 
 [ext_resource type="Script" path="res://scripts/gui_chat.gd" id="1_4sfx0"]
 [ext_resource type="Texture2D" uid="uid://tdbdq2t1rmd2" path="res://sprites/prota/Sprites Protago-.png" id="2_4nvtw"]
 [ext_resource type="Texture2D" uid="uid://b51n0lpba3oif" path="res://sprites/npc/sprites_dragona.png" id="3_coe4j"]
+[ext_resource type="Script" path="res://scripts/Interactuar.gd" id="4_cl47g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxm8m"]
 bg_color = Color(1, 1, 1, 1)
@@ -83,6 +84,7 @@ text = "¡¡¿ WTF, UN DRAGÓN.. ?!!
  [Enter] para continuar."
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_cl47g")
 metadata/_edit_lock_ = true
 
 [node name="SpriteProta2" type="Sprite2D" parent="GUI/Interactuar"]
