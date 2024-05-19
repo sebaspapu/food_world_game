@@ -6,10 +6,17 @@ extends Node2D
 
 var isPlayer = false
 var gui = null
+var animation_dragon = null
+
+# durmiendo
+var duerme = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("dormir")
+	#$AnimationPlayer.play("dormir")
+	animation_dragon = get_tree().get_nodes_in_group("dragon_animation")[0]
+	animation_dragon.play("dormir")
+	
 	gui = get_tree().get_nodes_in_group("gui")[0]
 	gui.get_node("Interactuar").visible = false
 

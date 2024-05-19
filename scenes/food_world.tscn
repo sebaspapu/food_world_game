@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=17 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://tlro5fae0jdf" path="res://sprites/world/tilesetarenaplaya.png" id="2_iit6o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="6_fx3f8"]
 [ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
+[ext_resource type="PackedScene" uid="uid://vq8jvf0kr06d" path="res://scenes/node_dragona.tscn" id="10_825js"]
 [ext_resource type="PackedScene" uid="uid://bdq36euwrofb3" path="res://scenes/gui_canvaslayer.tscn" id="10_ihe2i"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
 [ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="14_g4may"]
@@ -1056,6 +1057,8 @@ stream = ExtResource("11_gnumj")
 volume_db = -10.0
 autoplay = true
 metadata/_edit_lock_ = true
+
+[node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
 
 [node name="GUI" parent="." instance=ExtResource("14_g4may")]
 
