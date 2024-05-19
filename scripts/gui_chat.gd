@@ -5,6 +5,7 @@ var caras: Array[int] = []
 var caraA: Array[bool] = []
 var estado: int = -1
 var animation_dragon = null
+var flag_transformation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,7 +67,9 @@ func Avance():
 			#$Luz1.visible = caraA[estado]
 			#$Luz2.visible = not caraA[estado]
 		if (estado >= 7 and estado < 10):
-			animation_dragon.play("despertando")
+			if not flag_transformation:
+				animation_dragon.play("despertando")
+				flag_transformation = true
 			$SpriteProta.frame = caras[estado]
 			$SpriteProta.visible = not caraA[estado]
 			$SpriteDragona.frame = caras[estado]
