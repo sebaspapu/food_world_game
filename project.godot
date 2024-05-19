@@ -15,6 +15,10 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TransicionMenus="*res://scenes/transicion_menus.tscn"
+
 [input]
 
 com_jump={

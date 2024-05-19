@@ -953,10 +953,9 @@ metadata/_edit_lock_ = true
 
 [node name="Background 1" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(577, 292)
+position = Vector2(575, 308)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_5tw43")
-metadata/_edit_lock_ = true
 
 [node name="BodyFantasma" parent="." instance=ExtResource("3_nsuvj")]
 position = Vector2(1036, 550)
@@ -1059,6 +1058,7 @@ autoplay = true
 metadata/_edit_lock_ = true
 
 [node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
+visible = false
 
 [node name="GUI" parent="." instance=ExtResource("14_g4may")]
 

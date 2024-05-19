@@ -759,7 +759,7 @@ sources/0 = SubResource("TileSetAtlasSource_uhc2b")
 script = ExtResource("1_5qhbt")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(577, 320.5)
+position = Vector2(577, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_xiw5t")
 

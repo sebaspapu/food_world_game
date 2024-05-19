@@ -80,6 +80,8 @@ func Avance():
 			$SpriteProta.visible = caraA[estado]
 			$SpriteDragona.frame = caras[estado]
 			$SpriteDragona.visible = not caraA[estado]
+		if estado == 22:
+			TransicionMenus.change_scene("res://scenes/food_world.tscn")
 			
 		$Pausa.start()
 	
