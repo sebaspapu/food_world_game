@@ -47,10 +47,16 @@ func Avance():
 	else:
 		visible = true
 		text = textos[estado]
+		
+		print("texto: ",text)
+		print("cara: ",$SpriteProta.frame)
 		#$Luz1/Cara1.frame = caras[estado]
 		$SpriteProta.frame = caras[estado]
+		$SpriteProta.visible = caraA[estado]
 		#$Luz2/Cara2.frame = caras[estado]
 		$SpriteDragona.frame = caras[estado]
+		$SpriteDragona.visible = not caraA[estado]
 		#$Luz1.visible = caraA[estado]
 		#$Luz2.visible = not caraA[estado]
 		$Pausa.start()
+	print("estado: ", estado)
