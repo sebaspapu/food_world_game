@@ -30,6 +30,12 @@ layout_mode = 2
 text = "Menu Principal"
 metadata/_edit_lock_ = true
 
+[node name="ButtonContinuar" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Continuar Nivel"
+metadata/_edit_lock_ = true
+
 [node name="SpriteFondo" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(576, 321.5)
@@ -57,3 +63,4 @@ editable = false
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonContinuar" to="." method="_on_button_pressed"]
