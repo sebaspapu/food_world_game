@@ -968,8 +968,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1036, 550)
 
 [node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(37, 149)
-metadata/_edit_lock_ = true
+position = Vector2(19, 542)
 
 [node name="EnemyTomate" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
