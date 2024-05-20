@@ -30,6 +30,8 @@ func _ready():
 func _physics_process(delta):
 	if not gui.get_node("Chat").IsFree():
 		return null
+	if not gui.get_node("ChatComprobarIngredientes").IsFree():
+		return null
 	
 	# verificar si ha muerto
 	if Inactivo():
