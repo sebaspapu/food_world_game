@@ -1,18 +1,21 @@
-[gd_scene load_steps=19 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=21 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
-[ext_resource type="Texture2D" uid="uid://i7u2lfjaodv7" path="res://sprites/world/fondo.png" id="2_68age"]
 [ext_resource type="Texture2D" uid="uid://tlro5fae0jdf" path="res://sprites/world/tilesetarenaplaya.png" id="2_iit6o"]
+[ext_resource type="Texture2D" uid="uid://dnjbud02mp2eo" path="res://sprites/menu/fondonew.png" id="3_5tw43"]
 [ext_resource type="PackedScene" uid="uid://tbhcslowwxtt" path="res://scenes/body_fantasma.tscn" id="3_nsuvj"]
 [ext_resource type="PackedScene" uid="uid://ee2aihd8q0hl" path="res://scenes/body_tomate.tscn" id="4_1yg73"]
 [ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="6_fx3f8"]
-[ext_resource type="PackedScene" uid="uid://c8jh7vpb7ke58" path="res://scenes/object_manzana.tscn" id="7_e00xh"]
-[ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="8_5xt85"]
-[ext_resource type="Script" path="res://scripts/UI_objects.gd" id="8_sc6vs"]
-[ext_resource type="PackedScene" uid="uid://4xbt1skqi7r6" path="res://scenes/menu_pause.tscn" id="9_gmhxs"]
-[ext_resource type="Texture2D" uid="uid://c20eq7k4jitad" path="res://sprites/prota/vida/vida2.png" id="10_5vqd8"]
+[ext_resource type="PackedScene" uid="uid://vq8jvf0kr06d" path="res://scenes/node_dragona.tscn" id="10_825js"]
+[ext_resource type="PackedScene" uid="uid://bdq36euwrofb3" path="res://scenes/gui_canvaslayer.tscn" id="10_ihe2i"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
+[ext_resource type="PackedScene" uid="uid://uvxvbyood4i6" path="res://scenes/ingredientes/object_panes.tscn" id="13_o4swm"]
+[ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="14_g4may"]
+[ext_resource type="PackedScene" uid="uid://w211xoysisqv" path="res://scenes/ingredientes/object_carne.tscn" id="14_tl12p"]
+[ext_resource type="PackedScene" uid="uid://cqwe58mn3mhh8" path="res://scenes/ingredientes/object_lechuga.tscn" id="15_giaiw"]
+[ext_resource type="PackedScene" uid="uid://dvyrv3irckuft" path="res://scenes/ingredientes/object_queso.tscn" id="16_5nxvu"]
+[ext_resource type="PackedScene" uid="uid://dsnpqx8nbqd2a" path="res://scenes/ingredientes/object_papa.tscn" id="17_oxf8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -937,13 +940,6 @@ sources/0 = SubResource("TileSetAtlasSource_r547h")
 sources/1 = SubResource("TileSetAtlasSource_280kx")
 sources/2 = SubResource("TileSetAtlasSource_oeodm")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0etd"]
-bg_color = Color(0.992157, 0.266667, 0.823529, 0.486275)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
 [node name="World" type="Node2D"]
 position = Vector2(0, 16)
 
@@ -961,9 +957,9 @@ metadata/_edit_lock_ = true
 
 [node name="Background 1" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(577, 292)
-scale = Vector2(4.5, 4.89583)
-texture = ExtResource("2_68age")
+position = Vector2(575, 308)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_5tw43")
 metadata/_edit_lock_ = true
 
 [node name="BodyFantasma" parent="." instance=ExtResource("3_nsuvj")]
@@ -974,6 +970,7 @@ position = Vector2(23, 540)
 metadata/_edit_lock_ = true
 
 [node name="EnemyTomate" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="BodyTomate" parent="EnemyTomate" instance=ExtResource("4_1yg73")]
 position = Vector2(929, 279)
@@ -1006,9 +1003,8 @@ collision_layer = 4
 metadata/_edit_lock_ = true
 
 [node name="BodyAjo4" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
-position = Vector2(154, 122)
+position = Vector2(570, 515)
 collision_layer = 4
-metadata/_edit_lock_ = true
 
 [node name="BodyAjo5" parent="EnemyAjo" instance=ExtResource("5_st4j4")]
 position = Vector2(1053, 165)
@@ -1025,105 +1021,86 @@ position = Vector2(334, 453)
 collision_layer = 4
 metadata/_edit_lock_ = true
 
-[node name="ObjectManzana" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(678, 514)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana2" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(614, 388)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana3" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(61, 501)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana4" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(263, 580)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana5" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(355, 287)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana6" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(774, 227)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana7" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(823, 0)
-metadata/_edit_lock_ = true
-
-[node name="Object_manzana8" parent="ObjectManzana" instance=ExtResource("7_e00xh")]
-position = Vector2(109, 117)
-metadata/_edit_lock_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("8_sc6vs")
-
-[node name="menu_pausa" parent="CanvasLayer" instance=ExtResource("9_gmhxs")]
-
-[node name="NodeManzanas" type="Node2D" parent="CanvasLayer"]
-position = Vector2(1069, 5)
-metadata/_edit_lock_ = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer/NodeManzanas"]
-offset_right = 76.0
-offset_bottom = 59.0
-metadata/_edit_lock_ = true
-
-[node name="SpriteManzana" type="Sprite2D" parent="CanvasLayer/NodeManzanas"]
-position = Vector2(38, 28)
-texture = ExtResource("8_5xt85")
-hframes = 5
-metadata/_edit_lock_ = true
-
-[node name="Label_contador" type="Label" parent="CanvasLayer/NodeManzanas"]
-offset_left = 31.0
-offset_top = 14.0
-offset_right = 77.0
-offset_bottom = 69.0
-theme_override_font_sizes/font_size = 25
-text = "00"
-metadata/_edit_lock_ = true
-
-[node name="NodeVidas" type="Node2D" parent="CanvasLayer"]
-position = Vector2(115, 40)
-metadata/_edit_lock_ = true
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/NodeVidas"]
-offset_left = -108.0
-offset_top = -34.0
-offset_right = 106.0
-offset_bottom = 44.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_o0etd")
-metadata/_edit_lock_ = true
-
-[node name="SpriteVidas" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(-76, 74)
-scale = Vector2(1.15, 1.138)
-texture = ExtResource("10_5vqd8")
-hframes = 3
-metadata/_edit_lock_ = true
-
-[node name="SpriteVidas2" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(-9, 72)
-scale = Vector2(1.15, 1.138)
-texture = ExtResource("10_5vqd8")
-hframes = 3
-metadata/_edit_lock_ = true
-
-[node name="SpriteVidas3" type="Sprite2D" parent="CanvasLayer/NodeVidas"]
-position = Vector2(57, 71)
-scale = Vector2(1.15, 1.138)
-texture = ExtResource("10_5vqd8")
-hframes = 3
-metadata/_edit_lock_ = true
-
 [node name="MusicWorld" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_gnumj")
 volume_db = -10.0
 autoplay = true
+metadata/_edit_lock_ = true
+
+[node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
+visible = false
+
+[node name="GUI" parent="." instance=ExtResource("14_g4may")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("10_ihe2i")]
+
+[node name="ObjectIngredientesInWorld" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="ObjectPanes" type="Node2D" parent="ObjectIngredientesInWorld"]
+position = Vector2(1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Object_panes" parent="ObjectIngredientesInWorld/ObjectPanes" instance=ExtResource("13_o4swm")]
+position = Vector2(128, 448)
+metadata/_edit_lock_ = true
+
+[node name="Object_panes2" parent="ObjectIngredientesInWorld/ObjectPanes" instance=ExtResource("13_o4swm")]
+position = Vector2(394, 290)
+metadata/_edit_lock_ = true
+
+[node name="Object_panes3" parent="ObjectIngredientesInWorld/ObjectPanes" instance=ExtResource("13_o4swm")]
+position = Vector2(934, 195)
+metadata/_edit_lock_ = true
+
+[node name="ObjectCarnes" type="Node2D" parent="ObjectIngredientesInWorld"]
+metadata/_edit_lock_ = true
+
+[node name="Object_carne" parent="ObjectIngredientesInWorld/ObjectCarnes" instance=ExtResource("14_tl12p")]
+position = Vector2(666, 118)
+metadata/_edit_lock_ = true
+
+[node name="Object_carne2" parent="ObjectIngredientesInWorld/ObjectCarnes" instance=ExtResource("14_tl12p")]
+position = Vector2(1121, 544)
+metadata/_edit_lock_ = true
+
+[node name="Object_carne3" parent="ObjectIngredientesInWorld/ObjectCarnes" instance=ExtResource("14_tl12p")]
+position = Vector2(712, 389)
+metadata/_edit_lock_ = true
+
+[node name="ObjectLechuga" type="Node2D" parent="ObjectIngredientesInWorld"]
+metadata/_edit_lock_ = true
+
+[node name="Object_lechuga" parent="ObjectIngredientesInWorld/ObjectLechuga" instance=ExtResource("15_giaiw")]
+position = Vector2(381, 448)
+metadata/_edit_lock_ = true
+
+[node name="Object_lechuga2" parent="ObjectIngredientesInWorld/ObjectLechuga" instance=ExtResource("15_giaiw")]
+position = Vector2(957, 277)
+metadata/_edit_lock_ = true
+
+[node name="ObjectQueso" type="Node2D" parent="ObjectIngredientesInWorld"]
+metadata/_edit_lock_ = true
+
+[node name="Object_queso" parent="ObjectIngredientesInWorld/ObjectQueso" instance=ExtResource("16_5nxvu")]
+position = Vector2(625, 513)
+metadata/_edit_lock_ = true
+
+[node name="Object_queso2" parent="ObjectIngredientesInWorld/ObjectQueso" instance=ExtResource("16_5nxvu")]
+position = Vector2(1128, 157)
+metadata/_edit_lock_ = true
+
+[node name="Object_queso3" parent="ObjectIngredientesInWorld/ObjectQueso" instance=ExtResource("16_5nxvu")]
+position = Vector2(399, 565)
+metadata/_edit_lock_ = true
+
+[node name="ObjectPapa" type="Node2D" parent="ObjectIngredientesInWorld"]
+metadata/_edit_lock_ = true
+
+[node name="Object_papa" parent="ObjectIngredientesInWorld/ObjectPapa" instance=ExtResource("17_oxf8p")]
+position = Vector2(341, 127)
+metadata/_edit_lock_ = true
+
+[node name="Object_papa2" parent="ObjectIngredientesInWorld/ObjectPapa" instance=ExtResource("17_oxf8p")]
+position = Vector2(514, 84)
 metadata/_edit_lock_ = true

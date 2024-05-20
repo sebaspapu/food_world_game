@@ -6,17 +6,25 @@ extends Node2D
 
 var isPlayer = false
 var gui = null
+var animation_dragon = null
+
+# durmiendo
+var duerme = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("dormir")
+	#$AnimationPlayer.play("dormir")
+	animation_dragon = get_tree().get_nodes_in_group("dragon_animation")[0]
+	animation_dragon.play("dormir")
+	
 	gui = get_tree().get_nodes_in_group("gui")[0]
-	gui.get_node("Chat").visible = false
+	gui.get_node("Interactuar").visible = false
 
 func _input(event):
 	if event.is_action_pressed("com_down"):
 		if isPlayer:
 			var chat = gui.get_node("Chat")
+			gui.get_node("Interactuar").visible = false
 			if chat.IsFree():
 				chat.AddChat(textos, caras, caraA)
 				chat.Avance()
@@ -25,13 +33,13 @@ func _input(event):
 func _on_area_2d_body_entered(body):
 	if body.name == "BodyProta":
 		isPlayer = true
-		gui.get_node("Chat").visible = true
+		gui.get_node("Interactuar").visible = true
 
 
 func _on_area_2d_body_exited(body):
 	if body.name == "BodyProta":
 		isPlayer = false
-		gui.get_node("Chat").visible = false
+		gui.get_node("Interactuar").visible = false
 
 
 func _on_giro_timeout():

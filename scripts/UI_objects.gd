@@ -1,6 +1,12 @@
 extends CanvasLayer
 
+# variables ingredientes
 var apple = 0
+var pan = 0
+var carne = 0
+var lechuga = 0
+var queso = 0
+var papa = 0
 
 # variables vida
 var heart1
@@ -39,3 +45,35 @@ func handleHearts(lifes):
 		heart2.visible = false
 	if lifes == 2:
 		heart3.visible = false
+
+# contadores de ingredientes
+
+# pan
+func handleCollectedPan():
+	print("panes: ", pan)
+	pan+=1
+	$NodeIngredientes/Label_contador.text = var_to_str(pan)
+	
+# carne
+func handleCollectedCarne():
+	print("carne: ", carne)
+	carne+=1
+	$NodeIngredientes/Label_contador2.text = var_to_str(carne)
+	
+# lechuga
+func handleCollectedLechuga():
+	print("lechuga: ", lechuga)
+	lechuga+=1
+	$NodeIngredientes/Label_contador3.text = var_to_str(lechuga)
+	
+# queso
+func handleCollectedQueso():
+	print("queso: ", queso)
+	queso+=1
+	$NodeIngredientes/Label_contador4.text = var_to_str(queso)
+
+# papa
+func handleCollectedPapa():
+	print("papa: ", papa)
+	papa+=1
+	$NodeIngredientes/Label_contador5.text = var_to_str(papa)

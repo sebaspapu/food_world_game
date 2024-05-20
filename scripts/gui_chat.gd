@@ -4,6 +4,8 @@ var textos: Array[String] = []
 var caras: Array[int] = []
 var caraA: Array[bool] = []
 var estado: int = -1
+var animation_dragon = null
+var flag_transformation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +36,8 @@ func Clear():
 
 
 func Avance():
+	animation_dragon = get_tree().get_nodes_in_group("dragon_animation")[0]
+	
 	if estado == -1:
 		if textos.size() > 0:
 			estado = 0
@@ -47,10 +51,37 @@ func Avance():
 	else:
 		visible = true
 		text = textos[estado]
-		#$Luz1/Cara1.frame = caras[estado]
-		$SpriteProta.frame = caras[estado]
-		#$Luz2/Cara2.frame = caras[estado]
-		$SpriteDragona.frame = caras[estado]
-		#$Luz1.visible = caraA[estado]
-		#$Luz2.visible = not caraA[estado]
+		
+		print("texto: ",text)
+		print("cara: ",$SpriteProta.frame)
+		print("estado: ", estado)
+		
+		if estado >= -1 and estado <= 6:
+			animation_dragon.play("dormir")
+			#$Luz1/Cara1.frame = caras[estado]
+			$SpriteProta.frame = caras[estado]
+			$SpriteProta.visible = caraA[estado]
+			#$Luz2/Cara2.frame = caras[estado]
+			$SpriteDragona.frame = caras[estado]
+			$SpriteDragona.visible = not caraA[estado]
+			#$Luz1.visible = caraA[estado]
+			#$Luz2.visible = not caraA[estado]
+		if (estado >= 7 and estado < 10):
+			if not flag_transformation:
+				animation_dragon.play("despertando")
+				flag_transformation = true
+			$SpriteProta.frame = caras[estado]
+			$SpriteProta.visible = not caraA[estado]
+			$SpriteDragona.frame = caras[estado]
+			$SpriteDragona.visible = not caraA[estado]
+		if estado > 9:
+			animation_dragon.play("dragona_activa")
+			$SpriteProta.frame = caras[estado]
+			$SpriteProta.visible = caraA[estado]
+			$SpriteDragona.frame = caras[estado]
+			$SpriteDragona.visible = not caraA[estado]
+		if estado == 22:
+			TransicionMenus.change_scene("res://scenes/food_world.tscn")
+			
 		$Pausa.start()
+	
