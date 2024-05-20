@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5f5bxwot7p56"]
+[gd_scene load_steps=9 format=3 uid="uid://c5f5bxwot7p56"]
 
 [ext_resource type="Script" path="res://scripts/gui_chat.gd" id="1_4sfx0"]
 [ext_resource type="Texture2D" uid="uid://tdbdq2t1rmd2" path="res://sprites/prota/Sprites Protago-.png" id="2_4nvtw"]
 [ext_resource type="Texture2D" uid="uid://b51n0lpba3oif" path="res://sprites/npc/sprites_dragona.png" id="3_coe4j"]
 [ext_resource type="Script" path="res://scripts/Interactuar.gd" id="4_cl47g"]
+[ext_resource type="Script" path="res://scripts/ChatComprobarIngredientes.gd" id="5_h38d0"]
+[ext_resource type="Script" path="res://scripts/ComprobarIngredientes.gd" id="5_tvesq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxm8m"]
 bg_color = Color(0.870588, 0.835294, 0.72549, 1)
@@ -51,19 +53,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("1_4sfx0")
+metadata/_edit_lock_ = true
 
 [node name="SpriteProta" type="Sprite2D" parent="GUI/Chat"]
 position = Vector2(-76, 51)
 texture = ExtResource("2_4nvtw")
 hframes = 4
 vframes = 3
+metadata/_edit_lock_ = true
 
 [node name="SpriteDragona" type="Sprite2D" parent="GUI/Chat"]
 position = Vector2(869, 48)
-scale = Vector2(-1, 1)
+rotation = -3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("3_coe4j")
 hframes = 4
 vframes = 3
+metadata/_edit_lock_ = true
 
 [node name="Pausa" type="Timer" parent="GUI/Chat"]
 wait_time = 0.5
@@ -90,6 +96,7 @@ text = " [Enter] para interactuar."
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_cl47g")
+metadata/_edit_lock_ = true
 
 [node name="SpriteProta2" type="Sprite2D" parent="GUI/Interactuar"]
 position = Vector2(-73, 23)
@@ -98,3 +105,69 @@ hframes = 4
 vframes = 3
 frame = 2
 metadata/_edit_lock_ = true
+
+[node name="ComprobarIngredientes" type="Label" parent="GUI"]
+custom_minimum_size = Vector2(380, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.827
+anchor_right = 0.5
+anchor_bottom = 0.827
+offset_left = -122.0
+offset_top = -25.242
+offset_right = 128.0
+offset_bottom = 24.758
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
+text = "¡Aun no tengo todos los ingredientes!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_tvesq")
+metadata/_edit_lock_ = true
+
+[node name="SpriteProta2" type="Sprite2D" parent="GUI/ComprobarIngredientes"]
+position = Vector2(-70, 44)
+texture = ExtResource("2_4nvtw")
+hframes = 4
+vframes = 3
+frame = 3
+metadata/_edit_lock_ = true
+
+[node name="ChatComprobarIngredientes" type="Label" parent="GUI"]
+custom_minimum_size = Vector2(530, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.827
+anchor_right = 0.5
+anchor_bottom = 0.827
+offset_left = -122.0
+offset_top = -25.242
+offset_right = 128.0
+offset_bottom = 24.758
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("5_h38d0")
+metadata/_edit_lock_ = true
+
+[node name="SpriteProta3" type="Sprite2D" parent="GUI/ChatComprobarIngredientes"]
+position = Vector2(-70, 44)
+texture = ExtResource("2_4nvtw")
+hframes = 4
+vframes = 3
+frame = 1
+metadata/_edit_lock_ = true
+
+[node name="Pausa" type="Timer" parent="GUI/ChatComprobarIngredientes"]
+wait_time = 0.5
+one_shot = true

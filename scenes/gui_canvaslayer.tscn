@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4xbt1skqi7r6" path="res://scenes/menu_pause.tscn" id="2_fmuw5"]
 [ext_resource type="Texture2D" uid="uid://bghms5rt3t7ev" path="res://sprites/frutas/Manzana/SpriteManzana.png" id="3_6e26o"]
 [ext_resource type="Texture2D" uid="uid://c20eq7k4jitad" path="res://sprites/prota/vida/vida2.png" id="4_2gplp"]
-[ext_resource type="Texture2D" uid="uid://b08xeclx2ss2o" path="res://sprites/frutas/spriterecetario.png" id="4_7a1lo"]
+[ext_resource type="Texture2D" uid="uid://bs3kaua6lqcbi" path="res://sprites/frutas/spriteingredientes.png" id="4_tk5nf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8uq3"]
 bg_color = Color(0.294118, 0.662745, 0.67451, 0.486275)
@@ -55,53 +55,52 @@ offset_bottom = 187.0
 metadata/_edit_lock_ = true
 
 [node name="SpriteIngredientes" type="Sprite2D" parent="NodeIngredientes"]
-position = Vector2(45, 89)
-scale = Vector2(1.065, 0.94875)
-texture = ExtResource("4_7a1lo")
+position = Vector2(49, 100)
+texture = ExtResource("4_tk5nf")
 hframes = 2
 metadata/_edit_lock_ = true
 
 [node name="Label_contador" type="Label" parent="NodeIngredientes"]
-offset_left = 78.0
-offset_top = 23.0
-offset_right = 124.0
-offset_bottom = 78.0
+offset_left = 73.0
+offset_top = 10.0
+offset_right = 119.0
+offset_bottom = 65.0
 theme_override_font_sizes/font_size = 25
 text = "00"
 metadata/_edit_lock_ = true
 
 [node name="Label_contador2" type="Label" parent="NodeIngredientes"]
-offset_left = 78.0
-offset_top = 51.0
-offset_right = 124.0
-offset_bottom = 106.0
+offset_left = 73.0
+offset_top = 44.0
+offset_right = 119.0
+offset_bottom = 99.0
 theme_override_font_sizes/font_size = 25
 text = "00"
 metadata/_edit_lock_ = true
 
 [node name="Label_contador3" type="Label" parent="NodeIngredientes"]
-offset_left = 77.0
-offset_top = 81.0
-offset_right = 123.0
-offset_bottom = 136.0
+offset_left = 74.0
+offset_top = 78.0
+offset_right = 120.0
+offset_bottom = 133.0
 theme_override_font_sizes/font_size = 25
 text = "00"
 metadata/_edit_lock_ = true
 
 [node name="Label_contador4" type="Label" parent="NodeIngredientes"]
-offset_left = 77.0
+offset_left = 74.0
 offset_top = 110.0
-offset_right = 123.0
+offset_right = 120.0
 offset_bottom = 165.0
 theme_override_font_sizes/font_size = 25
 text = "00"
 metadata/_edit_lock_ = true
 
 [node name="Label_contador5" type="Label" parent="NodeIngredientes"]
-offset_left = 76.0
-offset_top = 141.0
-offset_right = 122.0
-offset_bottom = 196.0
+offset_left = 74.0
+offset_top = 142.0
+offset_right = 120.0
+offset_bottom = 197.0
 theme_override_font_sizes/font_size = 25
 text = "00"
 metadata/_edit_lock_ = true
