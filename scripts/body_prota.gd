@@ -138,6 +138,29 @@ func add_apple():
 	var canvasLayer = get_parent().find_child("CanvasLayer")
 	canvasLayer.handleAppleCollected()
 	
+# recoger ingredientes
+
+func add_panes():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleCollectedPan()
+
+func add_carne():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleCollectedCarne()
+
+func add_lechuga():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleCollectedLechuga()
+
+func add_queso():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleCollectedQueso()
+	
+func add_papa():
+	var canvasLayer = get_parent().find_child("CanvasLayer")
+	canvasLayer.handleCollectedPapa()
+
+
 func _lose_life():
 	lifes = lifes - 1
 	var canvasLayer = get_parent().find_child("CanvasLayer")

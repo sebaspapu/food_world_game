@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://uvxvbyood4i6"]
+
+[ext_resource type="Script" path="res://scripts/ingredientes_gd/object_panes2D.gd" id="1_2p7a6"]
+[ext_resource type="Texture2D" uid="uid://dtfi7825eniiu" path="res://sprites/frutas/spriteingredientesdiversos.png" id="2_iyhnf"]
+
+[sub_resource type="Animation" id="Animation_ljjhk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePanes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5wces"]
+resource_name = "panes_girando"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePanes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n1bfx"]
+_data = {
+"RESET": SubResource("Animation_ljjhk"),
+"panes_girando": SubResource("Animation_5wces")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_reo7l"]
+radius = 17.0294
+
+[node name="Object_panes" type="Node2D"]
+
+[node name="object_panes2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2p7a6")
+metadata/_edit_lock_ = true
+
+[node name="SpritePanes" type="Sprite2D" parent="object_panes2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.8, 0.676)
+texture = ExtResource("2_iyhnf")
+hframes = 5
+vframes = 5
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="object_panes2D"]
+libraries = {
+"": SubResource("AnimationLibrary_n1bfx")
+}
+autoplay = "panes_girando"
+speed_scale = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object_panes2D"]
+shape = SubResource("CircleShape2D_reo7l")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="object_panes2D" to="object_panes2D" method="_on_body_entered"]
