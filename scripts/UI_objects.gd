@@ -109,3 +109,5 @@ func fun_contador_ingredientes(pan, carne, lechuga, queso, papa):
 	print("contador_ingredientes: ", contador_ingredientes)
 	$NodeIngredientes/Label_contador6.text = var_to_str(contador_ingredientes)
 	#return contador_ingredientes
+	if contador_ingredientes >= 5:
+		$NodePlato/Label_contador.text = var_to_str(1)

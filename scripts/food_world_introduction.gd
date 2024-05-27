@@ -7,7 +7,7 @@ var gui_node_comprobar = null
 
 var gui = null
 var gui2 = null
-
+var gui_node_plato = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +26,9 @@ func _ready():
 	
 	gui2 = get_tree().get_nodes_in_group("gui")[0]
 	gui2.get_node("Node2D").visible = false
+	
+	gui_node_plato = get_tree().get_nodes_in_group("node_plato")[0]
+	gui_node_plato.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

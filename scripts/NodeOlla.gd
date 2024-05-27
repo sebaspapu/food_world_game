@@ -12,6 +12,7 @@ var label_contador6 = null
 var flag = false
 var flag_comida = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_olla = get_tree().get_nodes_in_group("olla_animation")[0]
@@ -36,6 +37,8 @@ func _input(event):
 					chat.AddChat(textos, caras, caraA)
 					chat.Avance()
 					flag_comida = true
+					
+				
 		else:
 			#gui2 = get_tree().get_nodes_in_group("gui")[0]
 			#gui2.get_node("ComprobarIngredientes").visible = true
