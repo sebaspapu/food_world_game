@@ -162,7 +162,6 @@ func add_papa():
 	var canvasLayer = get_parent().find_child("CanvasLayer")
 	canvasLayer.handleCollectedPapa()
 
-
 func _lose_life():
 	lifes = lifes - 1
 	var canvasLayer = get_parent().find_child("CanvasLayer")

@@ -97,7 +97,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_d678c"]
 radius = 15.0333
 
-[node name="BodyProta" type="CharacterBody2D"]
+[node name="BodyProta" type="CharacterBody2D" groups=["body_prota_enviroment"]]
 position = Vector2(478, 122)
 collision_layer = 2
 script = ExtResource("1_w8lkc")
