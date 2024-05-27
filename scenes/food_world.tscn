@@ -1,16 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=25 format=3 uid="uid://b617eieq7o87q"]
 
+[ext_resource type="Script" path="res://scripts/food_world.gd" id="1_s5xq4"]
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
 [ext_resource type="Texture2D" uid="uid://tlro5fae0jdf" path="res://sprites/world/tilesetarenaplaya.png" id="2_iit6o"]
 [ext_resource type="Texture2D" uid="uid://dnjbud02mp2eo" path="res://sprites/menu/fondonew.png" id="3_5tw43"]
 [ext_resource type="PackedScene" uid="uid://tbhcslowwxtt" path="res://scenes/body_fantasma.tscn" id="3_nsuvj"]
-[ext_resource type="Texture2D" path="res://sprites/world/sprite270_strip2.png" id="3_tuheo"]
+[ext_resource type="Texture2D" uid="uid://celylgyy7dnih" path="res://sprites/world/sprite270_strip2.png" id="3_tuheo"]
 [ext_resource type="PackedScene" uid="uid://ee2aihd8q0hl" path="res://scenes/body_tomate.tscn" id="4_1yg73"]
 [ext_resource type="PackedScene" uid="uid://da74dg52yudr7" path="res://scenes/body_ajo.tscn" id="5_st4j4"]
 [ext_resource type="PackedScene" uid="uid://qjkxdnqsrci6" path="res://scenes/body_prota.tscn" id="6_fx3f8"]
 [ext_resource type="PackedScene" uid="uid://vq8jvf0kr06d" path="res://scenes/node_dragona.tscn" id="10_825js"]
 [ext_resource type="PackedScene" uid="uid://bdq36euwrofb3" path="res://scenes/gui_canvaslayer.tscn" id="10_ihe2i"]
-[ext_resource type="PackedScene" path="res://scenes/node_olla.tscn" id="10_pgd3p"]
+[ext_resource type="PackedScene" uid="uid://d0iw4cshmc54p" path="res://scenes/node_olla.tscn" id="10_pgd3p"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
 [ext_resource type="PackedScene" uid="uid://uvxvbyood4i6" path="res://scenes/ingredientes/object_panes.tscn" id="13_o4swm"]
 [ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="14_g4may"]
@@ -1652,8 +1653,9 @@ sources/1 = SubResource("TileSetAtlasSource_280kx")
 sources/2 = SubResource("TileSetAtlasSource_oeodm")
 sources/3 = SubResource("TileSetAtlasSource_4hji5")
 
-[node name="World" type="Node2D"]
+[node name="food_world" type="Node2D"]
 position = Vector2(0, 16)
+script = ExtResource("1_s5xq4")
 metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1735,18 +1737,17 @@ autoplay = true
 metadata/_edit_lock_ = true
 
 [node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
-
-[node name="GUI" parent="." instance=ExtResource("14_g4may")]
 visible = false
 
+[node name="GUI" parent="." instance=ExtResource("14_g4may")]
+
 [node name="NodeOlla" parent="." instance=ExtResource("10_pgd3p")]
-position = Vector2(158, 123)
+position = Vector2(589, 502)
 textos = Array[String](["¡¡ Enhorabuena!! Has conseguido todos los ingredientes", "[ Cocinando ] .", "[ Cocinando ] . .", "[ Cocinando ] . . .", "¡¡ Terminado !!"])
 caras = Array[int]([0, 1, 0, 1, 0])
 caraA = Array[bool]([true, true, true, true, true])
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_ihe2i")]
-visible = false
 
 [node name="ObjectIngredientesInWorld" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

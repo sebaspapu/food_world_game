@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5f5bxwot7p56"]
+[gd_scene load_steps=10 format=3 uid="uid://c5f5bxwot7p56"]
 
 [ext_resource type="Script" path="res://scripts/gui_chat.gd" id="1_4sfx0"]
 [ext_resource type="Texture2D" uid="uid://tdbdq2t1rmd2" path="res://sprites/prota/Sprites Protago-.png" id="2_4nvtw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/Interactuar.gd" id="4_cl47g"]
 [ext_resource type="Script" path="res://scripts/ChatComprobarIngredientes.gd" id="5_h38d0"]
 [ext_resource type="Script" path="res://scripts/ComprobarIngredientes.gd" id="5_tvesq"]
+[ext_resource type="Script" path="res://scripts/GameOverLabel.gd" id="7_hq67x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxm8m"]
 bg_color = Color(0.870588, 0.835294, 0.72549, 1)
@@ -107,7 +108,6 @@ frame = 2
 metadata/_edit_lock_ = true
 
 [node name="ComprobarIngredientes" type="Label" parent="GUI" groups=["ComprobarIngredientes_group"]]
-visible = false
 custom_minimum_size = Vector2(380, 120)
 layout_mode = 1
 anchors_preset = -1
@@ -176,4 +176,29 @@ metadata/_edit_lock_ = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Node2D" type="Node2D" parent="GUI"]
+
+[node name="GameOver" type="Label" parent="GUI/Node2D" groups=["game_over_group"]]
+custom_minimum_size = Vector2(520, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 291.0
+offset_top = 254.5
+offset_right = 865.0
+offset_bottom = 391.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.854902, 0.34902, 0.243137, 1)
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+script = ExtResource("7_hq67x")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="GUI/Node2D/GameOver"]
+wait_time = 10.0
+
 [connection signal="timeout" from="GUI/ComprobarIngredientes/Timer" to="GUI/ComprobarIngredientes" method="_on_timer_timeout"]
+[connection signal="timeout" from="GUI/Node2D/GameOver/Timer" to="GUI/Node2D/GameOver" method="_on_timer_timeout"]

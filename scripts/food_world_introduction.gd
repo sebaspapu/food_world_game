@@ -6,6 +6,8 @@ var gui_node_vidas = null
 var gui_node_comprobar = null
 
 var gui = null
+var gui2 = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +23,9 @@ func _ready():
 	
 	gui = get_tree().get_nodes_in_group("gui")[0]
 	gui.get_node("ComprobarIngredientes").visible = false
+	
+	gui2 = get_tree().get_nodes_in_group("gui")[0]
+	gui2.get_node("Node2D").visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
