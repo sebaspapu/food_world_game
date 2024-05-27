@@ -6,6 +6,8 @@ var caraA: Array[bool] = []
 var estador: int = -1
 
 var animation_olla = null
+var gui_node_plato = null
+var gui_node_ingredientes = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,6 +61,14 @@ func Avance():
 			animation_olla.play("cocinando")
 			$SpriteProta3.frame = caras[estador]
 			$SpriteProta3.visible = not caraA[estador]
+		elif estador == 4:
+			animation_olla.play("sin_cocinar")
+			$SpriteProta3.frame = caras[estador]
+			$SpriteProta3.visible = caraA[estador]
+			gui_node_ingredientes = get_tree().get_nodes_in_group("node_ingredientes")[0]
+			gui_node_ingredientes.visible = false
+			gui_node_plato = get_tree().get_nodes_in_group("node_plato")[0]
+			gui_node_plato.visible = true
 		else:
 			animation_olla.play("sin_cocinar")
 			$SpriteProta3.frame = caras[estador]

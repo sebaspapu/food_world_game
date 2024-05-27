@@ -20,6 +20,7 @@ var flag = false
 
 #chat
 var gui = null
+var gui2 = null
 
 func _ready():
 	raiz = get_node("..").get_node("..")
@@ -127,7 +128,18 @@ func Dead(delete):
 		#c.position_smoothing_enabled = false
 		#c.position = pos
 		queue_free()
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		
+		# Obtener la escena actual y su nombre
+		var current_scene = get_tree().current_scene
+		print("La escena actual es: ", current_scene.name)
+		
+		#gui2 = get_node("..").get_node("GUI/GUI/Node2D")
+		#gui2.visible = true
+		
+		TransicionMenus.change_scene("res://scenes/"+current_scene.name+".tscn")
+		gui2 = get_tree().get_nodes_in_group("gui")[0]
+		gui2.get_node("Node2D").visible = true
+		
 	else:
 		_lose_life()
 		
@@ -178,3 +190,14 @@ func _lose_life():
 		velocity.y = -JUMPVEL
 		isdead = true
 		flag = true
+		
+		# Obtener la escena actual y su nombre
+		var current_scene = get_tree().current_scene
+		print("La escena actual es: ", current_scene.name)
+		
+		#gui2 = get_node("..").get_node("GUI/GUI/Node2D")
+		#gui2.visible = true
+		
+		TransicionMenus.change_scene("res://scenes/"+current_scene.name+".tscn")
+		gui2 = get_tree().get_nodes_in_group("gui")[0]
+		gui2.get_node("Node2D").visible = true

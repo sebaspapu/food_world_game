@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vq8jvf0kr06d" path="res://scenes/node_dragona.tscn" id="4_q1w6f"]
 [ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="5_cy0od"]
 [ext_resource type="PackedScene" uid="uid://bdq36euwrofb3" path="res://scenes/gui_canvaslayer.tscn" id="6_j3f0e"]
-[ext_resource type="PackedScene" path="res://scenes/node_olla.tscn" id="8_rwoej"]
+[ext_resource type="PackedScene" uid="uid://d0iw4cshmc54p" path="res://scenes/node_olla.tscn" id="8_rwoej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uhc2b"]
 resource_name = "terreno playa main"

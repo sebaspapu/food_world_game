@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0iw4cshmc54p"]
 
 [ext_resource type="Script" path="res://scripts/NodeOlla.gd" id="1_4i4kx"]
-[ext_resource type="Texture2D" path="res://sprites/frutas/spriteOlla.png" id="2_qh4ab"]
+[ext_resource type="Texture2D" uid="uid://d1bimyiq6dxgg" path="res://sprites/frutas/spriteOlla.png" id="2_qh4ab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5atk"]
 size = Vector2(75.5, 20)

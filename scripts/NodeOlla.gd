@@ -9,6 +9,9 @@ var gui = null
 var gui2 = null
 var animation_olla = null
 var label_contador6 = null
+var flag = false
+var flag_comida = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,9 +25,10 @@ func _ready():
 func _input(event):
 	
 	if event.is_action_pressed("com_down"):
+		flag = true
 		label_contador6 = get_tree().get_nodes_in_group("contador_final_ingre")[0].text
 		print("label_contador6: ", label_contador6)
-		if int(label_contador6) >= 2.0:
+		if int(label_contador6) >= 5.0 and (not flag_comida):
 			print("tienes los ingredientes")
 			if isPlayer:
 				var chat = gui.get_node("ChatComprobarIngredientes")
@@ -32,6 +36,9 @@ func _input(event):
 				if chat.IsFree():
 					chat.AddChat(textos, caras, caraA)
 					chat.Avance()
+					flag_comida = true
+					
+				
 		else:
 			#gui2 = get_tree().get_nodes_in_group("gui")[0]
 			#gui2.get_node("ComprobarIngredientes").visible = true
@@ -60,7 +67,9 @@ func _on_giro_timeout():
 func _on_area_2d_body_entered(body):
 	if body.name == "BodyProta":
 		isPlayer = true
-		gui.get_node("Interactuar").visible = true
+		label_contador6 = get_tree().get_nodes_in_group("contador_final_ingre")[0].text
+		if ((not flag) or (int(label_contador6) >= 5.0)) and (not flag_comida):
+			gui.get_node("Interactuar").visible = true
 
 
 func _on_area_2d_body_exited(body):
