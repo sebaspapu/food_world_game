@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6i20dv12wlg6"]
+[gd_scene load_steps=8 format=3 uid="uid://d0iw4cshmc54p"]
 
 [ext_resource type="Script" path="res://scripts/NodeOlla.gd" id="1_4i4kx"]
 [ext_resource type="Texture2D" path="res://sprites/frutas/spriteOlla.png" id="2_qh4ab"]
