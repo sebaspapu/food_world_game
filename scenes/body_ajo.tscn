@@ -82,6 +82,7 @@ radius = 12.0
 position = Vector2(478, 122)
 collision_layer = 2
 script = ExtResource("1_0k36e")
+metadata/_edit_lock_ = true
 
 [node name="SpriteCaminandoAjo" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
@@ -91,7 +92,7 @@ hframes = 6
 metadata/_edit_lock_ = true
 
 [node name="RayColision" type="RayCast2D" parent="SpriteCaminandoAjo"]
-position = Vector2(90.9091, 159.091)
+position = Vector2(90.9091, 250)
 scale = Vector2(22.6947, 21.1021)
 target_position = Vector2(17.0244, 0)
 metadata/_edit_lock_ = true
