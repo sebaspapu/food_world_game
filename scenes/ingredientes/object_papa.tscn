@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/ingredientes_gd/object_papa2D.gd" id="1_gb24k"]
 [ext_resource type="Texture2D" uid="uid://dtfi7825eniiu" path="res://sprites/frutas/spriteingredientesdiversos.png" id="2_fuag0"]
 
+[sub_resource type="Animation" id="Animation_eje3p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spritepapa:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
 [sub_resource type="Animation" id="Animation_lv4d5"]
 resource_name = "papa_girando"
 length = 2.0
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [20, 21, 22, 23, 24]
-}
-
-[sub_resource type="Animation" id="Animation_eje3p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spritepapa:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [20]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1bfx"]

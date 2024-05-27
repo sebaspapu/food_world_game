@@ -6,7 +6,9 @@ extends Node2D
 
 var isPlayer = false
 var gui = null
+var gui2 = null
 var animation_olla = null
+var label_contador6 = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,13 +20,33 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
+	
 	if event.is_action_pressed("com_down"):
-		if isPlayer:
-			var chat = gui.get_node("ChatComprobarIngredientes")
-			gui.get_node("Interactuar").visible = false
-			if chat.IsFree():
-				chat.AddChat(textos, caras, caraA)
-				chat.Avance()
+		label_contador6 = get_tree().get_nodes_in_group("contador_final_ingre")[0].text
+		print("label_contador6: ", label_contador6)
+		if int(label_contador6) >= 2.0:
+			print("tienes los ingredientes")
+			if isPlayer:
+				var chat = gui.get_node("ChatComprobarIngredientes")
+				gui.get_node("Interactuar").visible = false
+				if chat.IsFree():
+					chat.AddChat(textos, caras, caraA)
+					chat.Avance()
+		else:
+			#gui2 = get_tree().get_nodes_in_group("gui")[0]
+			#gui2.get_node("ComprobarIngredientes").visible = true
+			var gui_node = get_node("..").get_node("GUI/GUI")
+			if gui_node == null:
+				print("GUI node not found")
+				return
+
+			var comprobar_ingredientes_node = gui_node.get_node("ComprobarIngredientes")
+			if comprobar_ingredientes_node == null:
+				print("ComprobarIngredientes node not found under GUI")
+			else:
+				# Aquí va el código para cuando el nodo es encontrado
+				gui.get_node("Interactuar").visible = false
+				comprobar_ingredientes_node.visible = true
 
 
 func _on_giro_timeout():
