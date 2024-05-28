@@ -51,13 +51,18 @@ func Avance():
 		Clear()
 	else:
 		visible = true
-		text = textos[estador]
+		if estador != 5:
+			text = textos[estador]
 		
 		print("texto: ",text)
 		print("cara: ",$SpriteProta3.frame)
 		print("estador: ", estador)
-
-		if estador >= 1 and estador <= 3:
+		
+		if estador == 0:
+			animation_olla.play("sin_cocinar")
+			$SpriteProta3.frame = caras[estador]
+			$SpriteProta3.visible = caraA[estador]
+		elif estador >= 1 and estador <= 3:
 			animation_olla.play("cocinando")
 			$SpriteProta3.frame = caras[estador]
 			$SpriteProta3.visible = not caraA[estador]
@@ -69,10 +74,12 @@ func Avance():
 			gui_node_ingredientes.visible = false
 			gui_node_plato = get_tree().get_nodes_in_group("node_plato")[0]
 			gui_node_plato.visible = true
-		else:
+		elif estador == 5:
 			animation_olla.play("sin_cocinar")
-			$SpriteProta3.frame = caras[estador]
-			$SpriteProta3.visible = caraA[estador]
+		#else:
+		#	animation_olla.play("sin_cocinar")
+		#	$SpriteProta3.frame = caras[estador]
+		#	$SpriteProta3.visible = caraA[estador]
 		
 		$Pausa.start()
 	

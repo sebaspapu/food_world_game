@@ -107,8 +107,7 @@ vframes = 3
 frame = 2
 metadata/_edit_lock_ = true
 
-[node name="ComprobarIngredientes" type="Label" parent="GUI" groups=["ComprobarIngredientes_group"]]
-visible = false
+[node name="ComprobarIngredientes" type="Label" parent="GUI"]
 custom_minimum_size = Vector2(380, 120)
 layout_mode = 1
 anchors_preset = -1
@@ -116,19 +115,18 @@ anchor_left = 0.5
 anchor_top = 0.827
 anchor_right = 0.5
 anchor_bottom = 0.827
-offset_left = -187.0
-offset_top = -60.242
-offset_right = 193.0
-offset_bottom = 59.758
+offset_left = -153.0
+offset_top = -55.242
+offset_right = 227.0
+offset_bottom = 64.758
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
-text = "¡Aun no tengo todos los ingredientes!
-Necesitaré minimo 5"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 script = ExtResource("5_tvesq")
 metadata/_edit_lock_ = true
 
@@ -140,8 +138,9 @@ vframes = 3
 frame = 3
 metadata/_edit_lock_ = true
 
-[node name="Timer" type="Timer" parent="GUI/ComprobarIngredientes"]
-wait_time = 20.0
+[node name="Pausa" type="Timer" parent="GUI/ComprobarIngredientes"]
+wait_time = 0.5
+one_shot = true
 
 [node name="ChatComprobarIngredientes" type="Label" parent="GUI"]
 custom_minimum_size = Vector2(530, 120)
@@ -202,5 +201,4 @@ metadata/_edit_lock_ = true
 [node name="Timer" type="Timer" parent="GUI/Node2D/GameOver"]
 wait_time = 10.0
 
-[connection signal="timeout" from="GUI/ComprobarIngredientes/Timer" to="GUI/ComprobarIngredientes" method="_on_timer_timeout"]
 [connection signal="timeout" from="GUI/Node2D/GameOver/Timer" to="GUI/Node2D/GameOver" method="_on_timer_timeout"]

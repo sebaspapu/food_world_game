@@ -1681,7 +1681,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1036, 550)
 
 [node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(59, 531)
+position = Vector2(64, 531)
 
 [node name="EnemyTomate" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -1736,15 +1736,15 @@ autoplay = true
 metadata/_edit_lock_ = true
 
 [node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
-visible = false
+position = Vector2(200, 110)
 
 [node name="GUI" parent="." instance=ExtResource("14_g4may")]
 
 [node name="NodeOlla" parent="." instance=ExtResource("10_pgd3p")]
 position = Vector2(350, 432)
-textos = Array[String](["¡¡ Enhorabuena!! Has conseguido todos los ingredientes", "[ Cocinando ] .", "[ Cocinando ] . .", "[ Cocinando ] . . .", "¡¡ Terminado !!"])
-caras = Array[int]([0, 1, 0, 1, 0])
-caraA = Array[bool]([true, true, true, true, true])
+textos = Array[String](["¡¡ Enhorabuena!! Has conseguido todos los ingredientes", "[ Cocinando ] .", "[ Cocinando ] . .", "[ Cocinando ] . . .", "¡¡ Terminado !!", "¡Aun no tengo todos los ingredientes! Necesitaré minimo 5"])
+caras = Array[int]([0, 1, 0, 1, 0, 0])
+caraA = Array[bool]([true, true, true, true, true, true])
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_ihe2i")]
 
