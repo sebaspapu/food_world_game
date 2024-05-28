@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 TransicionMenus="*res://scenes/transicion_menus.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 com_jump={
