@@ -47,6 +47,7 @@ metadata/_edit_lock_ = true
 
 [node name="NodeIngredientes" type="Node2D" parent="." groups=["node_ingredientes"]]
 position = Vector2(1014, 10)
+metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="NodeIngredientes"]
 custom_minimum_size = Vector2(130, 190)
@@ -117,6 +118,7 @@ metadata/_edit_lock_ = true
 
 [node name="NodePlato" type="Node2D" parent="." groups=["node_plato"]]
 position = Vector2(1014, 10)
+metadata/_edit_lock_ = true
 
 [node name="PanelPlato" type="Panel" parent="NodePlato"]
 custom_minimum_size = Vector2(130, 150)
@@ -132,7 +134,7 @@ texture = ExtResource("5_ye083")
 hframes = 2
 metadata/_edit_lock_ = true
 
-[node name="Label_contador" type="Label" parent="NodePlato"]
+[node name="Label_contador" type="Label" parent="NodePlato" groups=["label_contador_plato"]]
 offset_left = 89.0
 offset_top = 66.0
 offset_right = 135.0
