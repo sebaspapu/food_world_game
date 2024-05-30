@@ -19,13 +19,14 @@ func _ready():
 	
 	gui = get_tree().get_nodes_in_group("gui")[0]
 	gui.get_node("Interactuar").visible = false
+	
+	$Label.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
-	
+	label_contador6 = get_tree().get_nodes_in_group("contador_final_ingre")[0].text
 	if event.is_action_pressed("com_down"):
 		flag = true
-		label_contador6 = get_tree().get_nodes_in_group("contador_final_ingre")[0].text
 		print("label_contador6x: ", label_contador6)
 		if int(label_contador6) >= 5.0 and (not flag_comida):
 			print("tienes los ingredientes")
@@ -36,18 +37,20 @@ func _input(event):
 					chat.AddChat(textos, caras, caraA)
 					chat.Avance()
 					flag_comida = true
+					$Label.text = var_to_str(1)
+					$Label.visible = true
 					
-				
 		elif int(label_contador6) < 5.0:
 			print("entra a la condicion")
 			if isPlayer:
 				#gui2 = get_tree().get_nodes_in_group("gui")[0]
 				var chat2 = gui.get_node("ComprobarIngredientes")#.visible = true
 				gui.get_node("Interactuar").visible = false
-				if chat2.IsFree2():
+				if chat2.IsFree():
 					chat2.AddChat2(textos, caras, caraA)
 					chat2.Avance2()
 				print("entro aca")
+			
 		print("se salio")
 			
 			# --->> HAY QUE CAMBIARLO POR LA SEGUNDA VERSION DE COMPROBAR INGREDIENTES

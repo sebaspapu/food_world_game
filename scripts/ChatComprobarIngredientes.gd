@@ -83,4 +83,3 @@ func Avance():
 		
 		$Pausa.start()
 	
-	

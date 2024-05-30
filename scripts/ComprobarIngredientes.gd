@@ -19,7 +19,7 @@ func _input(event):
 		if $Pausa.is_stopped() and estador != -1:
 			Avance2()
 			
-func IsFree2():
+func IsFree():
 	return estador == -1
 
 func AddOne2(texto: String, cara: int, isA: bool):

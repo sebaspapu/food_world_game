@@ -40,6 +40,7 @@ func _input(event):
 			if chat.IsFree():
 				chat.AddChat(textos, caras, caraA)
 				chat.Avance()
+				print("avance node dragona\n")
 
 
 func _on_area_2d_body_entered(body):

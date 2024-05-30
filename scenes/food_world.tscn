@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=26 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Script" path="res://scripts/food_world.gd" id="1_s5xq4"]
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bdq36euwrofb3" path="res://scenes/gui_canvaslayer.tscn" id="10_ihe2i"]
 [ext_resource type="PackedScene" uid="uid://d0iw4cshmc54p" path="res://scenes/node_olla.tscn" id="10_pgd3p"]
 [ext_resource type="AudioStream" uid="uid://cegt216wdnjsw" path="res://audio/music/Gerudo Town Day The Legend of Zelda Breath of the Wild OST.mp3" id="11_gnumj"]
+[ext_resource type="PackedScene" uid="uid://c7tr16stbe2fn" path="res://scenes/node_dragona_expecting.tscn" id="12_7q8x6"]
 [ext_resource type="PackedScene" uid="uid://uvxvbyood4i6" path="res://scenes/ingredientes/object_panes.tscn" id="13_o4swm"]
 [ext_resource type="PackedScene" uid="uid://c5f5bxwot7p56" path="res://scenes/gui_chat.tscn" id="14_g4may"]
 [ext_resource type="PackedScene" uid="uid://w211xoysisqv" path="res://scenes/ingredientes/object_carne.tscn" id="14_tl12p"]
@@ -1681,7 +1682,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1036, 550)
 
 [node name="BodyProta" parent="." instance=ExtResource("6_fx3f8")]
-position = Vector2(64, 531)
+position = Vector2(32, 149)
 
 [node name="EnemyTomate" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -1735,8 +1736,14 @@ volume_db = -10.0
 autoplay = true
 metadata/_edit_lock_ = true
 
-[node name="NodeDragona" parent="." instance=ExtResource("10_825js")]
-position = Vector2(200, 110)
+[node name="NodeDragona" parent="." groups=["node_dragona_sleep"] instance=ExtResource("10_825js")]
+position = Vector2(6, -20)
+
+[node name="NodeDragona_expecting" parent="." instance=ExtResource("12_7q8x6")]
+position = Vector2(224, 111)
+textos = Array[String](["¿¡Tratas de engañarme!? .. ¡REGRESA CUANDO TENGAS EL PLATO LISTO!", "Me disculpo. ¡Regresaré pronto!", "Vaya, Vaya, ¿Pero qué tenemos aquí?", "Señorita…*jadea*  Dragona… ¡Prepare el hocico, pues he aquí mi obra maestra!", "Así que… ¿Este es el supuesto platillo que me deleitará? Ja, ja, no me hagas reír, luce todo corriente. Más bien, ¿con qué salsa quieres que te coma?, te daré el gusto de escoger.", "Si no le gusta… ¡Yo misma entraré a su boca!", "¿Eh~?", "Mi sola presencia deshonraría este maravilloso mundo culinario. Caería en un vacío intangible donde mi misma alma destrozaría uno por uno los pilares del fornido deseo de mi difunta abuela de-", "Bueno, bueno, nos pusimos como qué… sentimentales. Más bien, trae eso para acá. ", "Je, je, je~", "Qué aburrido cuando la comida no se resiste…", "*se la traga todo de un bocado*", "¡¿Eh?! ¡P-pero…!, ¡no, no, no, así no debió ser! ¡Usted debió al menos probarla, no… tragarla!", "Oh… no…", "…", "Tú… pequeña ratoncita… Tú…", "¡No, no, no, esto no debió ser así!", "¡Olvídate de donde vienes, ahora eres solo mía!", "¡¿Qué?! P-pero, dragona-", "¡Me vas a cocinar durante toda tu existencia, esto está riquísimo! ¡Tú!, ¡mi nueva esclava!, jamás había probado algo tan sabroso en mis 1500 años de vida *snif* *snif*", "*se sonroja* lléveme con usted, señora dragona. Aún tengo miles recetas por inventar en estos nuevos mundos. ¡De tan solo pensar en todos los ingredientes que aún no he conocido me tiembla la cola!", "¡Ni loca! ¡Si los demás monstruos y bestias de alto mando se dan cuenta de tu valor, ¡habría guerra por poseerte!, prometeme que no te escaparás. O sino… te mataré con mis propias garras…", "¡P-por supuesto que no me iré! Je, je, je… sí… no me iré, claro que no…  ", "*pensando* ¡Allá voy, nuevos mundos!"])
+caras = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+caraA = Array[bool]([false, true, false, true, false, true, false, true, false, true, false, false, true, true, false, false, true, false, true, false, true, false, true, true])
 
 [node name="GUI" parent="." instance=ExtResource("14_g4may")]
 
