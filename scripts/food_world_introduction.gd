@@ -21,6 +21,8 @@ func _ready():
 	gui_node_vidas = get_tree().get_nodes_in_group("node_vidas")[0]
 	gui_node_vidas.visible = true
 	
+	
+	# --->> HAY QUE CAMBIARLO POR LA SEGUNDA VERSION DE COMPROBAR INGREDIENTES
 	gui = get_tree().get_nodes_in_group("gui")[0]
 	gui.get_node("ComprobarIngredientes").visible = false
 	

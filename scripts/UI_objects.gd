@@ -15,6 +15,9 @@ var heart1
 var heart2
 var heart3
 
+# aparecer recordatorio
+var body_control = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -109,5 +112,7 @@ func fun_contador_ingredientes(pan, carne, lechuga, queso, papa):
 	print("contador_ingredientes: ", contador_ingredientes)
 	$NodeIngredientes/Label_contador6.text = var_to_str(contador_ingredientes)
 	#return contador_ingredientes
-	if contador_ingredientes >= 5:
+	if contador_ingredientes == 5:
+		body_control = get_tree().get_nodes_in_group("control_body")[0]
+		body_control.get_node("LabelBodyRecordatorio").visible = true
 		$NodePlato/Label_contador.text = var_to_str(1)

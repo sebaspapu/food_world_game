@@ -20,25 +20,27 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("com_down"):
 		if isPlayer:
+			print("es dra...")
 			var chat = gui.get_node("Chat")
 			gui.get_node("Interactuar").visible = false
 			
-			# comprobacion de error
-			var gui_node = get_node("..").get_node("GUI/GUI")
-			if gui_node == null:
-				print("GUI node not found")
-				return
+			# comprobacion de error  --->> HAY QUE CAMBIARLO POR LA SEGUNDA VERSION DE COMPROBAR INGREDIENTES
+			#var gui_node = get_node("..").get_node("GUI/GUI")
+			#if gui_node == null:
+			#	print("GUI node not found")
+			#	return
 
-			var comprobar_ingredientes_node = gui_node.get_node("ComprobarIngredientes")
-			if comprobar_ingredientes_node == null:
-				print("ComprobarIngredientes node not found under GUI")
-			else:
+			#var comprobar_ingredientes_node = gui_node.get_node("ComprobarIngredientes")
+			#if comprobar_ingredientes_node == null:
+			#	print("ComprobarIngredientes node not found under GUI")
+			#else:
 				# Aquí va el código para cuando el nodo es encontrado
-				comprobar_ingredientes_node.visible = false
+			#	comprobar_ingredientes_node.visible = false
 				
 			if chat.IsFree():
 				chat.AddChat(textos, caras, caraA)
 				chat.Avance()
+				print("avance node dragona\n")
 
 
 func _on_area_2d_body_entered(body):
