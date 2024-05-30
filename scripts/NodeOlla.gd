@@ -11,6 +11,7 @@ var animation_olla = null
 var label_contador6 = null
 var flag = false
 var flag_comida = false
+var body_control = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,8 @@ func _input(event):
 					flag_comida = true
 					$Label.text = var_to_str(1)
 					$Label.visible = true
+					body_control = get_tree().get_nodes_in_group("control_body")[0]
+					body_control.get_node("LabelBodyRecordatorio").visible = false
 					
 		elif int(label_contador6) < 5.0:
 			print("entra a la condicion")
