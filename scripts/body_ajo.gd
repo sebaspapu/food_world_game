@@ -42,7 +42,7 @@ func _physics_process(delta):
 	# disparo de ajo
 	if $Cadencia.is_stopped():
 		if VePlayer($SpriteCaminandoAjo/RayTiro):
-			$Cadencia.start(randf_range(0.1, 7.5)) # comentar para disparar a rafaga, tener en cuenta el Wait time de Candencia
+			$Cadencia.start(randf_range(0.1, 3)) # comentar para disparar a rafaga, tener en cuenta el Wait time de Candencia
 			AttackBallsSmoke()
 			AttackSmoke()
 
