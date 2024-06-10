@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b617eieq7o87q"]
+[gd_scene load_steps=28 format=3 uid="uid://b617eieq7o87q"]
 
 [ext_resource type="Script" path="res://scripts/food_world.gd" id="1_s5xq4"]
 [ext_resource type="Texture2D" uid="uid://bv7lw41lkmcvj" path="res://sprites/world/tilesetcolor.png" id="1_u54j2"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwe58mn3mhh8" path="res://scenes/ingredientes/object_lechuga.tscn" id="15_giaiw"]
 [ext_resource type="PackedScene" uid="uid://dvyrv3irckuft" path="res://scenes/ingredientes/object_queso.tscn" id="16_5nxvu"]
 [ext_resource type="PackedScene" uid="uid://dsnpqx8nbqd2a" path="res://scenes/ingredientes/object_papa.tscn" id="17_oxf8p"]
+[ext_resource type="Texture2D" uid="uid://d3ugsh7xdqtx3" path="res://sprites/prota/SpriteAtaque.png" id="21_hv6hr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r547h"]
 resource_name = "terreno"
@@ -1654,6 +1655,13 @@ sources/1 = SubResource("TileSetAtlasSource_280kx")
 sources/2 = SubResource("TileSetAtlasSource_oeodm")
 sources/3 = SubResource("TileSetAtlasSource_4hji5")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m4w4"]
+bg_color = Color(0.0313726, 0.811765, 0.894118, 0.737255)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="food_world" type="Node2D"]
 position = Vector2(0, 16)
 script = ExtResource("1_s5xq4")
@@ -1745,16 +1753,14 @@ caras = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 caraA = Array[bool]([false, true, false, true, false, true, false, true, false, true, false, false, true, true, false, false, true, false, true, false, true, false, true, true])
 
 [node name="GUI" parent="." instance=ExtResource("14_g4may")]
-visible = false
 
 [node name="NodeOlla" parent="." instance=ExtResource("10_pgd3p")]
 position = Vector2(350, 432)
-textos = Array[String](["¡¡ Enhorabuena!! Has conseguido todos los ingredientes", "[ Cocinando ] .", "[ Cocinando ] . .", "[ Cocinando ] . . .", "¡¡ Terminado !!", "¡Aun no tengo todos los ingredientes! Necesitaré minimo 5"])
+textos = Array[String](["¡¡ Enhorabuena!! Has conseguido todos los ingredientes", "[ Cocinando ] .", "[ Cocinando ] . .", "[ Cocinando ] . . .", "¡¡ Terminado !!", "¡Perfecto, aqui podré cocinar el plato, pero... Aún no tengo todos los ingredientes! Necesitaré minimo 5"])
 caras = Array[int]([0, 1, 0, 1, 0, 0])
 caraA = Array[bool]([true, true, true, true, true, true])
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_ihe2i")]
-visible = false
 
 [node name="ObjectIngredientesInWorld" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -1793,4 +1799,818 @@ metadata/_edit_lock_ = true
 
 [node name="Object_papa" parent="ObjectIngredientesInWorld/ObjectPapa" instance=ExtResource("17_oxf8p")]
 position = Vector2(402, 147)
+metadata/_edit_lock_ = true
+
+[node name="PanelAyuda" type="Panel" parent="."]
+custom_minimum_size = Vector2(50, 40)
+offset_left = 11.0
+offset_top = 427.0
+offset_right = 138.0
+offset_bottom = 473.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1m4w4")
+metadata/_edit_lock_ = true
+
+[node name="NodeAyuda2" type="Node2D" parent="PanelAyuda"]
+position = Vector2(51, -6)
+metadata/_edit_lock_ = true
+
+[node name="PanelW" type="Panel" parent="PanelAyuda/NodeAyuda2"]
+offset_left = -27.0
+offset_top = 12.0
+offset_right = -9.0
+offset_bottom = 28.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW/Label_Text"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW/Label_Text/Label_Text3"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW"]
+layout_mode = 0
+offset_left = -5.0
+offset_right = 4.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text5" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW/Label_Text2"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text6" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW/Label_Text2/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda2/PanelW/Label_Text2/Label_Text5/Label_Text6"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="PanelA" type="Panel" parent="PanelAyuda/NodeAyuda2"]
+offset_left = -45.0
+offset_top = 30.0
+offset_right = -28.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text5" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text6" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text8" type="Label" parent="PanelAyuda/NodeAyuda2/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="PanelS" type="Panel" parent="PanelAyuda/NodeAyuda2"]
+offset_left = -26.0
+offset_top = 30.0
+offset_right = -9.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text1" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 15.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="PanelD" type="Panel" parent="PanelAyuda/NodeAyuda2"]
+offset_left = -7.0
+offset_top = 30.0
+offset_right = 10.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text1" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 14.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda2/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="PanelSaltar" type="Panel" parent="PanelAyuda/NodeAyuda2"]
+offset_left = 18.0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 47.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "[ _______ ]"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -14.0
+offset_right = 27.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text9" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text10" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text11" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text8" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -14.0
+offset_right = 36.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text9" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text10" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text11" type="Label" parent="PanelAyuda/NodeAyuda2/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="NodeAyuda3" type="Node2D" parent="PanelAyuda"]
+position = Vector2(51, -6)
+metadata/_edit_lock_ = true
+
+[node name="PanelW" type="Panel" parent="PanelAyuda/NodeAyuda3"]
+offset_left = -27.0
+offset_top = 12.0
+offset_right = -9.0
+offset_bottom = 28.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW/Label_Text"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW/Label_Text/Label_Text3"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "W"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW"]
+layout_mode = 0
+offset_left = -5.0
+offset_right = 4.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text5" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW/Label_Text2"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text6" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW/Label_Text2/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda3/PanelW/Label_Text2/Label_Text5/Label_Text6"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="PanelA" type="Panel" parent="PanelAyuda/NodeAyuda3"]
+offset_left = -45.0
+offset_top = 30.0
+offset_right = -28.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "A"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text5" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text6" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text8" type="Label" parent="PanelAyuda/NodeAyuda3/PanelA/Label_Text5"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "←"
+metadata/_edit_lock_ = true
+
+[node name="PanelS" type="Panel" parent="PanelAyuda/NodeAyuda3"]
+offset_left = -26.0
+offset_top = 30.0
+offset_right = -9.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "S"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text1" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 15.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelS/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↓"
+metadata/_edit_lock_ = true
+
+[node name="PanelD" type="Panel" parent="PanelAyuda/NodeAyuda3"]
+offset_left = -7.0
+offset_top = 30.0
+offset_right = 10.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "D"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text1" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 14.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text2" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda/NodeAyuda3/PanelD/Label_Text1"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "→"
+metadata/_edit_lock_ = true
+
+[node name="PanelSaltar" type="Panel" parent="PanelAyuda/NodeAyuda3"]
+offset_left = 18.0
+offset_top = 30.0
+offset_right = 69.0
+offset_bottom = 46.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 47.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "[ _______ ]"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text7" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -14.0
+offset_right = 27.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text9" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text10" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text11" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text7"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text8" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -14.0
+offset_right = 36.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text9" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text10" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text11" type="Label" parent="PanelAyuda/NodeAyuda3/PanelSaltar/Label_Text8"]
+layout_mode = 0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "↑"
+metadata/_edit_lock_ = true
+
+[node name="PanelAyuda2" type="Panel" parent="."]
+custom_minimum_size = Vector2(20, 20)
+offset_left = 432.0
+offset_top = 409.0
+offset_right = 475.0
+offset_bottom = 444.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1m4w4")
+metadata/_edit_lock_ = true
+
+[node name="NodeAyuda1" type="Node2D" parent="PanelAyuda2"]
+position = Vector2(51, -6)
+metadata/_edit_lock_ = true
+
+[node name="PanelE" type="Panel" parent="PanelAyuda2/NodeAyuda1"]
+offset_left = -37.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = 26.0
+metadata/_edit_lock_ = true
+
+[node name="Label_Text" type="Label" parent="PanelAyuda2/NodeAyuda1/PanelE"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 10
+text = "E"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text3" type="Label" parent="PanelAyuda2/NodeAyuda1/PanelE/Label_Text"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "E"
+metadata/_edit_lock_ = true
+
+[node name="Label_Text4" type="Label" parent="PanelAyuda2/NodeAyuda1/PanelE/Label_Text/Label_Text3"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 10.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
+text = "E"
+metadata/_edit_lock_ = true
+
+[node name="SpriteAtaque" type="Sprite2D" parent="PanelAyuda2/NodeAyuda1"]
+position = Vector2(-28, 33)
+scale = Vector2(0.315104, 0.278646)
+texture = ExtResource("21_hv6hr")
+hframes = 13
+frame = 11
 metadata/_edit_lock_ = true
