@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5f5bxwot7p56"]
+[gd_scene load_steps=12 format=3 uid="uid://c5f5bxwot7p56"]
 
 [ext_resource type="Script" path="res://scripts/gui_chat.gd" id="1_4sfx0"]
 [ext_resource type="Texture2D" uid="uid://tdbdq2t1rmd2" path="res://sprites/prota/Sprites Protago-.png" id="2_4nvtw"]
 [ext_resource type="Texture2D" uid="uid://b51n0lpba3oif" path="res://sprites/npc/sprites_dragona.png" id="3_coe4j"]
+[ext_resource type="Script" path="res://scripts/ChatDragonaExpecting.gd" id="4_0bwaq"]
 [ext_resource type="Script" path="res://scripts/Interactuar.gd" id="4_cl47g"]
 [ext_resource type="Script" path="res://scripts/ChatComprobarIngredientes.gd" id="5_h38d0"]
 [ext_resource type="Script" path="res://scripts/ComprobarIngredientes.gd" id="5_tvesq"]
+[ext_resource type="Script" path="res://scripts/Interactuar2.gd" id="6_jkmw1"]
 [ext_resource type="Script" path="res://scripts/GameOverLabel.gd" id="7_hq67x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxm8m"]
@@ -76,6 +78,45 @@ metadata/_edit_lock_ = true
 wait_time = 0.5
 one_shot = true
 
+[node name="ChatDragonaExpecting" type="Label" parent="GUI"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 475.0
+offset_right = 968.0
+offset_bottom = 595.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_cxm8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_0bwaq")
+metadata/_edit_lock_ = true
+
+[node name="SpriteProta" type="Sprite2D" parent="GUI/ChatDragonaExpecting"]
+position = Vector2(-76, 51)
+texture = ExtResource("2_4nvtw")
+hframes = 4
+vframes = 3
+metadata/_edit_lock_ = true
+
+[node name="SpriteDragona" type="Sprite2D" parent="GUI/ChatDragonaExpecting"]
+position = Vector2(869, 48)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_coe4j")
+hframes = 4
+vframes = 3
+metadata/_edit_lock_ = true
+
+[node name="Pausa" type="Timer" parent="GUI/ChatDragonaExpecting"]
+wait_time = 0.05
+one_shot = true
+
+[node name="Timer" type="Timer" parent="GUI/ChatDragonaExpecting"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Interactuar" type="Label" parent="GUI"]
 custom_minimum_size = Vector2(350, 90)
 layout_mode = 1
@@ -84,16 +125,16 @@ anchor_left = 0.5
 anchor_top = 0.827
 anchor_right = 0.5
 anchor_bottom = 0.827
-offset_left = -122.0
-offset_top = -25.242
-offset_right = 128.0
-offset_bottom = 24.758
+offset_left = -164.0
+offset_top = -28.242
+offset_right = 186.0
+offset_bottom = 61.758
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
-text = " [Enter] para interactuar."
+text = " [ENTER] para interactuar."
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_cl47g")
@@ -107,8 +148,38 @@ vframes = 3
 frame = 2
 metadata/_edit_lock_ = true
 
-[node name="ComprobarIngredientes" type="Label" parent="GUI" groups=["ComprobarIngredientes_group"]]
-visible = false
+[node name="Interactuar2" type="Label" parent="GUI"]
+custom_minimum_size = Vector2(350, 90)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.827
+anchor_right = 0.5
+anchor_bottom = 0.827
+offset_left = -162.0
+offset_top = -31.242
+offset_right = 188.0
+offset_bottom = 58.758
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
+text = " [SHIFT] para interactuar."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_jkmw1")
+metadata/_edit_lock_ = true
+
+[node name="SpriteProta2" type="Sprite2D" parent="GUI/Interactuar2"]
+position = Vector2(-73, 23)
+texture = ExtResource("2_4nvtw")
+hframes = 4
+vframes = 3
+frame = 2
+metadata/_edit_lock_ = true
+
+[node name="ComprobarIngredientes" type="Label" parent="GUI"]
 custom_minimum_size = Vector2(380, 120)
 layout_mode = 1
 anchors_preset = -1
@@ -116,19 +187,18 @@ anchor_left = 0.5
 anchor_top = 0.827
 anchor_right = 0.5
 anchor_bottom = 0.827
-offset_left = -187.0
-offset_top = -60.242
-offset_right = 193.0
-offset_bottom = 59.758
+offset_left = -153.0
+offset_top = -55.242
+offset_right = 227.0
+offset_bottom = 64.758
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdgok")
-text = "¡Aun no tengo todos los ingredientes!
-Necesitaré minimo 5"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 script = ExtResource("5_tvesq")
 metadata/_edit_lock_ = true
 
@@ -140,8 +210,9 @@ vframes = 3
 frame = 3
 metadata/_edit_lock_ = true
 
-[node name="Timer" type="Timer" parent="GUI/ComprobarIngredientes"]
-wait_time = 20.0
+[node name="Pausa" type="Timer" parent="GUI/ComprobarIngredientes"]
+wait_time = 0.5
+one_shot = true
 
 [node name="ChatComprobarIngredientes" type="Label" parent="GUI"]
 custom_minimum_size = Vector2(530, 120)
@@ -202,5 +273,4 @@ metadata/_edit_lock_ = true
 [node name="Timer" type="Timer" parent="GUI/Node2D/GameOver"]
 wait_time = 10.0
 
-[connection signal="timeout" from="GUI/ComprobarIngredientes/Timer" to="GUI/ComprobarIngredientes" method="_on_timer_timeout"]
 [connection signal="timeout" from="GUI/Node2D/GameOver/Timer" to="GUI/Node2D/GameOver" method="_on_timer_timeout"]

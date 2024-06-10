@@ -100,7 +100,7 @@ metadata/_edit_lock_ = true
 [node name="RayTiro" type="RayCast2D" parent="SpriteCaminandoAjo"]
 position = Vector2(204.546, 45.4546)
 scale = Vector2(22.6947, 21.1021)
-target_position = Vector2(128.184, 0)
+target_position = Vector2(127.182, 0)
 collision_mask = 3
 metadata/_edit_lock_ = true
 
