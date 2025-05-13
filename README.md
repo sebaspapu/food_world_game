@@ -1,0 +1,1 @@
+Este videojuego casual tipo plataformas fue creado dentro del marco de la clase "desarrollo de videojuegos - seminario técnico tecnológico" de la Facultad de Artes Integradas (FAI), en la Universidad del Valle, en Colombia 2024.
